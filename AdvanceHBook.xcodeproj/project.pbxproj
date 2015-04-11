@@ -16,6 +16,17 @@
 		B1897BF31AD98475008D743C /* AGTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF01AD98475008D743C /* AGTCoreDataStack.m */; };
 		B1897BF41AD98475008D743C /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */; };
 		B1897BF91AD986D8008D743C /* MXWBaseManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */; };
+		B1897C041AD989FD008D743C /* _MXWAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BFB1AD989FD008D743C /* _MXWAuthor.m */; };
+		B1897C051AD989FD008D743C /* _MXWBook.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BFD1AD989FD008D743C /* _MXWBook.m */; };
+		B1897C061AD989FD008D743C /* _MXWGender.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BFF1AD989FD008D743C /* _MXWGender.m */; };
+		B1897C071AD989FD008D743C /* _MXWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C011AD989FD008D743C /* _MXWNote.m */; };
+		B1897C081AD989FD008D743C /* _MXWTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C031AD989FD008D743C /* _MXWTag.m */; };
+		B1897C0C1AD98A2B008D743C /* MXWAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C0B1AD98A2B008D743C /* MXWAuthor.m */; };
+		B1897C151AD98A46008D743C /* MXWBook.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C0E1AD98A46008D743C /* MXWBook.m */; };
+		B1897C161AD98A46008D743C /* MXWGender.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C101AD98A46008D743C /* MXWGender.m */; };
+		B1897C171AD98A46008D743C /* MXWNote.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C121AD98A46008D743C /* MXWNote.m */; };
+		B1897C181AD98A46008D743C /* MXWTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C141AD98A46008D743C /* MXWTag.m */; };
+		B1897C1B1AD99724008D743C /* Book_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B1897C1A1AD99724008D743C /* Book_placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +58,27 @@
 		B1897BF61AD984E6008D743C /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		B1897BF71AD986D8008D743C /* MXWBaseManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWBaseManagedObject.h; sourceTree = "<group>"; };
 		B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWBaseManagedObject.m; sourceTree = "<group>"; };
+		B1897BFA1AD989FD008D743C /* _MXWAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MXWAuthor.h; sourceTree = "<group>"; };
+		B1897BFB1AD989FD008D743C /* _MXWAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MXWAuthor.m; sourceTree = "<group>"; };
+		B1897BFC1AD989FD008D743C /* _MXWBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MXWBook.h; sourceTree = "<group>"; };
+		B1897BFD1AD989FD008D743C /* _MXWBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MXWBook.m; sourceTree = "<group>"; };
+		B1897BFE1AD989FD008D743C /* _MXWGender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MXWGender.h; sourceTree = "<group>"; };
+		B1897BFF1AD989FD008D743C /* _MXWGender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MXWGender.m; sourceTree = "<group>"; };
+		B1897C001AD989FD008D743C /* _MXWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MXWNote.h; sourceTree = "<group>"; };
+		B1897C011AD989FD008D743C /* _MXWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MXWNote.m; sourceTree = "<group>"; };
+		B1897C021AD989FD008D743C /* _MXWTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _MXWTag.h; sourceTree = "<group>"; };
+		B1897C031AD989FD008D743C /* _MXWTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _MXWTag.m; sourceTree = "<group>"; };
+		B1897C0A1AD98A2B008D743C /* MXWAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWAuthor.h; sourceTree = "<group>"; };
+		B1897C0B1AD98A2B008D743C /* MXWAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWAuthor.m; sourceTree = "<group>"; };
+		B1897C0D1AD98A46008D743C /* MXWBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWBook.h; sourceTree = "<group>"; };
+		B1897C0E1AD98A46008D743C /* MXWBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWBook.m; sourceTree = "<group>"; };
+		B1897C0F1AD98A46008D743C /* MXWGender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWGender.h; sourceTree = "<group>"; };
+		B1897C101AD98A46008D743C /* MXWGender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWGender.m; sourceTree = "<group>"; };
+		B1897C111AD98A46008D743C /* MXWNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWNote.h; sourceTree = "<group>"; };
+		B1897C121AD98A46008D743C /* MXWNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWNote.m; sourceTree = "<group>"; };
+		B1897C131AD98A46008D743C /* MXWTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWTag.h; sourceTree = "<group>"; };
+		B1897C141AD98A46008D743C /* MXWTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWTag.m; sourceTree = "<group>"; };
+		B1897C1A1AD99724008D743C /* Book_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Book_placeholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +132,7 @@
 		B1897BC51AD9529E008D743C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1897C1C1AD99729008D743C /* img */,
 				B1897BD21AD9529E008D743C /* Images.xcassets */,
 				B1897BD41AD9529E008D743C /* LaunchScreen.xib */,
 				B1897BC61AD9529E008D743C /* Info.plist */,
@@ -129,11 +162,18 @@
 		B1897BEE1AD977CD008D743C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B1897BEF1AD98460008D743C /* AGTCoreDataStack.h */,
-				B1897BF01AD98475008D743C /* AGTCoreDataStack.m */,
-				B1897BEB1AD977BD008D743C /* BookModel.xcdatamodeld */,
-				B1897BF71AD986D8008D743C /* MXWBaseManagedObject.h */,
-				B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */,
+				B1897C0A1AD98A2B008D743C /* MXWAuthor.h */,
+				B1897C0B1AD98A2B008D743C /* MXWAuthor.m */,
+				B1897C0D1AD98A46008D743C /* MXWBook.h */,
+				B1897C0E1AD98A46008D743C /* MXWBook.m */,
+				B1897C0F1AD98A46008D743C /* MXWGender.h */,
+				B1897C101AD98A46008D743C /* MXWGender.m */,
+				B1897C111AD98A46008D743C /* MXWNote.h */,
+				B1897C121AD98A46008D743C /* MXWNote.m */,
+				B1897C131AD98A46008D743C /* MXWTag.h */,
+				B1897C141AD98A46008D743C /* MXWTag.m */,
+				B1897C091AD98A04008D743C /* moG */,
+				B1897C191AD98A5C008D743C /* CoreData */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -145,6 +185,43 @@
 				B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		B1897C091AD98A04008D743C /* moG */ = {
+			isa = PBXGroup;
+			children = (
+				B1897BFA1AD989FD008D743C /* _MXWAuthor.h */,
+				B1897BFB1AD989FD008D743C /* _MXWAuthor.m */,
+				B1897BFC1AD989FD008D743C /* _MXWBook.h */,
+				B1897BFD1AD989FD008D743C /* _MXWBook.m */,
+				B1897BFE1AD989FD008D743C /* _MXWGender.h */,
+				B1897BFF1AD989FD008D743C /* _MXWGender.m */,
+				B1897C001AD989FD008D743C /* _MXWNote.h */,
+				B1897C011AD989FD008D743C /* _MXWNote.m */,
+				B1897C021AD989FD008D743C /* _MXWTag.h */,
+				B1897C031AD989FD008D743C /* _MXWTag.m */,
+			);
+			name = moG;
+			sourceTree = "<group>";
+		};
+		B1897C191AD98A5C008D743C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B1897BEB1AD977BD008D743C /* BookModel.xcdatamodeld */,
+				B1897BEF1AD98460008D743C /* AGTCoreDataStack.h */,
+				B1897BF01AD98475008D743C /* AGTCoreDataStack.m */,
+				B1897BF71AD986D8008D743C /* MXWBaseManagedObject.h */,
+				B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		B1897C1C1AD99729008D743C /* img */ = {
+			isa = PBXGroup;
+			children = (
+				B1897C1A1AD99724008D743C /* Book_placeholder.png */,
+			);
+			name = img;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,6 +307,7 @@
 			files = (
 				B1897BD61AD9529E008D743C /* LaunchScreen.xib in Resources */,
 				B1897BD31AD9529E008D743C /* Images.xcassets in Resources */,
+				B1897C1B1AD99724008D743C /* Book_placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,11 +326,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */,
+				B1897C171AD98A46008D743C /* MXWNote.m in Sources */,
 				B1897BF41AD98475008D743C /* AGTCoreDataTableViewController.m in Sources */,
+				B1897C041AD989FD008D743C /* _MXWAuthor.m in Sources */,
+				B1897C151AD98A46008D743C /* MXWBook.m in Sources */,
+				B1897C051AD989FD008D743C /* _MXWBook.m in Sources */,
 				B1897BED1AD977BD008D743C /* BookModel.xcdatamodeld in Sources */,
+				B1897C0C1AD98A2B008D743C /* MXWAuthor.m in Sources */,
+				B1897C081AD989FD008D743C /* _MXWTag.m in Sources */,
 				B1897BF31AD98475008D743C /* AGTCoreDataStack.m in Sources */,
+				B1897C161AD98A46008D743C /* MXWGender.m in Sources */,
+				B1897C181AD98A46008D743C /* MXWTag.m in Sources */,
 				B1897BF91AD986D8008D743C /* MXWBaseManagedObject.m in Sources */,
 				B1897BC81AD9529E008D743C /* main.m in Sources */,
+				B1897C071AD989FD008D743C /* _MXWNote.m in Sources */,
+				B1897C061AD989FD008D743C /* _MXWGender.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 maxeiware. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+@import CoreData;
 
 @interface MXWBaseManagedObject : NSManagedObject
+
++(NSArray *) observableKeys;
 
 @end
