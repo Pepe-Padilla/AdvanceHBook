@@ -44,10 +44,6 @@
 
 
 #pragma mark - Class Methods
-+(NSArray *) observableKeys{
-    return @[];
-}
-
 +(instancetype) bookWithTitle: (NSString *) atitle
                        urlPDF: (NSURL*) aExtURLPDF
                   urlPortraid: (NSURL*) aExtURLPortraid

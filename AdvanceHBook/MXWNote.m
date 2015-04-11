@@ -37,4 +37,19 @@
     return n;
 }
 
+#pragma mark -  Class Methods
++(NSArray *) observableKeys{
+    return @[MXWNoteAttributes.text,MXWNoteAttributes.image];
+}
+
+#pragma mark - KVO
+-(void) observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context{
+    
+    self.modificationDate = [NSDate date];
+}
+
+
 @end
