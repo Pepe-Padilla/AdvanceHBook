@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14C1514" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Author" representedClassName="MXWAuthor" syncable="YES">
+        <attribute name="authorName" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="authors" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Book" representedClassName="MXWBook" syncable="YES">
+        <attribute name="extURLPDF" attributeType="String" syncable="YES"/>
+        <attribute name="extURLPortraid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="favorites" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="finished" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="lastDayAcces" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastPage" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="pdfData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="portraid" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="title" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="authors" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Author" inverseName="books" inverseEntity="Author" syncable="YES"/>
+        <relationship name="genders" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Gender" inverseName="books" inverseEntity="Gender" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="books" inverseEntity="Note" syncable="YES"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Tag" inverseName="books" inverseEntity="Tag" syncable="YES"/>
+    </entity>
+    <entity name="Gender" representedClassName="MXWGender" syncable="YES">
+        <attribute name="genderName" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="genders" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Note" representedClassName="MXWNote" syncable="YES">
+        <attribute name="addres" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="creationDate" attributeType="Date" defaultDateTimeInterval="0" indexed="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="modificationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="page" attributeType="Integer 16" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="notes" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Tag" representedClassName="MXWTag" syncable="YES">
+        <attribute name="tagName" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="tags" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Book" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="Tag" positionX="-54" positionY="63" width="128" height="75"/>
+        <element name="Author" positionX="-36" positionY="72" width="128" height="75"/>
+        <element name="Gender" positionX="-18" positionY="81" width="128" height="75"/>
+        <element name="Note" positionX="0" positionY="90" width="128" height="180"/>
+    </elements>
+</model>

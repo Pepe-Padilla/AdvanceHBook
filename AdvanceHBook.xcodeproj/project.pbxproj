@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		B1897BC81AD9529E008D743C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BC71AD9529E008D743C /* main.m */; };
 		B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BCA1AD9529E008D743C /* AppDelegate.m */; };
-		B1897BCE1AD9529E008D743C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BCD1AD9529E008D743C /* ViewController.m */; };
-		B1897BD11AD9529E008D743C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1897BCF1AD9529E008D743C /* Main.storyboard */; };
 		B1897BD31AD9529E008D743C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1897BD21AD9529E008D743C /* Images.xcassets */; };
 		B1897BD61AD9529E008D743C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1897BD41AD9529E008D743C /* LaunchScreen.xib */; };
 		B1897BE21AD9529E008D743C /* AdvanceHBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BE11AD9529E008D743C /* AdvanceHBookTests.m */; };
+		B1897BED1AD977BD008D743C /* BookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1897BEB1AD977BD008D743C /* BookModel.xcdatamodeld */; };
+		B1897BF31AD98475008D743C /* AGTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF01AD98475008D743C /* AGTCoreDataStack.m */; };
+		B1897BF41AD98475008D743C /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */; };
+		B1897BF91AD986D8008D743C /* MXWBaseManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,19 @@
 		B1897BC71AD9529E008D743C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B1897BC91AD9529E008D743C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B1897BCA1AD9529E008D743C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B1897BCC1AD9529E008D743C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B1897BCD1AD9529E008D743C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B1897BD01AD9529E008D743C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1897BD21AD9529E008D743C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B1897BD51AD9529E008D743C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B1897BDB1AD9529E008D743C /* AdvanceHBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AdvanceHBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1897BE01AD9529E008D743C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1897BE11AD9529E008D743C /* AdvanceHBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdvanceHBookTests.m; sourceTree = "<group>"; };
+		B1897BEC1AD977BD008D743C /* BookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookModel.xcdatamodel; sourceTree = "<group>"; };
+		B1897BEF1AD98460008D743C /* AGTCoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataStack.h; sourceTree = "<group>"; };
+		B1897BF01AD98475008D743C /* AGTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataStack.m; sourceTree = "<group>"; };
+		B1897BF11AD98475008D743C /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
+		B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
+		B1897BF61AD984E6008D743C /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		B1897BF71AD986D8008D743C /* MXWBaseManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWBaseManagedObject.h; sourceTree = "<group>"; };
+		B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWBaseManagedObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +90,8 @@
 			children = (
 				B1897BC91AD9529E008D743C /* AppDelegate.h */,
 				B1897BCA1AD9529E008D743C /* AppDelegate.m */,
-				B1897BCC1AD9529E008D743C /* ViewController.h */,
-				B1897BCD1AD9529E008D743C /* ViewController.m */,
-				B1897BCF1AD9529E008D743C /* Main.storyboard */,
-				B1897BD21AD9529E008D743C /* Images.xcassets */,
-				B1897BD41AD9529E008D743C /* LaunchScreen.xib */,
+				B1897BF51AD9849A008D743C /* Controllers */,
+				B1897BEE1AD977CD008D743C /* Model */,
 				B1897BC51AD9529E008D743C /* Supporting Files */,
 			);
 			path = AdvanceHBook;
@@ -96,8 +100,11 @@
 		B1897BC51AD9529E008D743C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1897BD21AD9529E008D743C /* Images.xcassets */,
+				B1897BD41AD9529E008D743C /* LaunchScreen.xib */,
 				B1897BC61AD9529E008D743C /* Info.plist */,
 				B1897BC71AD9529E008D743C /* main.m */,
+				B1897BF61AD984E6008D743C /* Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -117,6 +124,27 @@
 				B1897BE01AD9529E008D743C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1897BEE1AD977CD008D743C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B1897BEF1AD98460008D743C /* AGTCoreDataStack.h */,
+				B1897BF01AD98475008D743C /* AGTCoreDataStack.m */,
+				B1897BEB1AD977BD008D743C /* BookModel.xcdatamodeld */,
+				B1897BF71AD986D8008D743C /* MXWBaseManagedObject.h */,
+				B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B1897BF51AD9849A008D743C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1897BF11AD98475008D743C /* AGTCoreDataTableViewController.h */,
+				B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +191,7 @@
 		B1897BBA1AD9529E008D743C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = MXW;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = maxeiware;
 				TargetAttributes = {
@@ -199,7 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1897BD11AD9529E008D743C /* Main.storyboard in Resources */,
 				B1897BD61AD9529E008D743C /* LaunchScreen.xib in Resources */,
 				B1897BD31AD9529E008D743C /* Images.xcassets in Resources */,
 			);
@@ -219,8 +247,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1897BCE1AD9529E008D743C /* ViewController.m in Sources */,
 				B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */,
+				B1897BF41AD98475008D743C /* AGTCoreDataTableViewController.m in Sources */,
+				B1897BED1AD977BD008D743C /* BookModel.xcdatamodeld in Sources */,
+				B1897BF31AD98475008D743C /* AGTCoreDataStack.m in Sources */,
+				B1897BF91AD986D8008D743C /* MXWBaseManagedObject.m in Sources */,
 				B1897BC81AD9529E008D743C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +275,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B1897BCF1AD9529E008D743C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B1897BD01AD9529E008D743C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B1897BD41AD9529E008D743C /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -428,6 +451,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B1897BEB1AD977BD008D743C /* BookModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B1897BEC1AD977BD008D743C /* BookModel.xcdatamodel */,
+			);
+			currentVersion = B1897BEC1AD977BD008D743C /* BookModel.xcdatamodel */;
+			path = BookModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B1897BBA1AD9529E008D743C /* Project object */;
 }
