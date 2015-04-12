@@ -31,14 +31,26 @@
     
     [self.library autoSave];
     
+    NSMutableDictionary * dHeader = [NSMutableDictionary
+                                     dictionaryWithDictionary:@{TITLE_SECTION : @"",
+                                                                SECTION_FRC : @"NO",
+                                                                NOFRC_COUNT : @1 }];
+    
+    NSMutableDictionary * dFavorites = [NSMutableDictionary
+                                        dictionaryWithDictionary:@{TITLE_SECTION : @"Favorites",
+                                                                   SECTION_FRC : @"YES",
+                                                                   FETCH_RC : [self.library fetchForFavorites]}];
+    
     NSMutableDictionary * dGenders = [NSMutableDictionary
                                       dictionaryWithDictionary:@{TITLE_SECTION : @"Titles",
-                                                                 SECTION_FRC : @YES,
-                                                                 FETCH_RC : [self.library fetchForTitles]}];
-    NSMutableArray * aGenders = [NSMutableArray arrayWithArray:@[dGenders]];
+                                                                 SECTION_FRC : @"YES",
+                                                                 FETCH_RC : [self.library fetchForGenders]}];
+    
+    NSMutableArray * aGenders = [NSMutableArray arrayWithArray:@[dHeader,dFavorites,dGenders]];
     
     MXWLibraryViewController *nVC = [[MXWLibraryViewController alloc]
                                      initWithArray:aGenders style:UITableViewStylePlain];
+    [nVC performFetch];
     
     
     

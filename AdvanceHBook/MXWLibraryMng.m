@@ -54,6 +54,33 @@
     return fc;
 }
 
+- (NSFetchedResultsController*) fetchForFavorites {
+    
+    if (!self.stack) {
+        [self beginStack];
+    }
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWBook entityName]];
+    
+    req.sortDescriptors = @[[NSSortDescriptor
+                             sortDescriptorWithKey:MXWBookAttributes.title
+                             ascending:YES
+                             selector:@selector(caseInsensitiveCompare:)]];
+    req.fetchBatchSize = 20;
+    
+    req.predicate = [NSPredicate predicateWithFormat:@"favorites = %@",[NSNumber numberWithBool:NO]];
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
+                                      initWithFetchRequest:req
+                                      managedObjectContext:self.stack.context
+                                      sectionNameKeyPath:nil
+                                      cacheName:nil];
+    
+    return fc;
+}
+
+
 - (NSFetchedResultsController*) fetchForTags {
     
     if (!self.stack) {

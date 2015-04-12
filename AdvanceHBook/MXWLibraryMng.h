@@ -20,6 +20,7 @@
 - (NSFetchedResultsController*) fetchForTitles;
 - (NSFetchedResultsController*) fetchForTags;
 - (NSFetchedResultsController*) fetchForGenders;
+- (NSFetchedResultsController*) fetchForFavorites;
 - (void) autoSave;
 
 @end

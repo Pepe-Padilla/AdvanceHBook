@@ -24,7 +24,7 @@
     if (self = [super initWithStyle:aStyle]) {
         _arrayTable = arrayOfFetchC;
         _aTitle = [[NSMutableArray alloc] init];
-        _debug = YES;
+        //_debug = YES;
     }
     
     return self;
@@ -52,11 +52,11 @@
     [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSMutableDictionary * dictionary = obj;
         
-        BOOL sectionRFC = [dictionary objectForKey:SECTION_FRC];
-        NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        NSString * sectionRFC = [dictionary objectForKey:SECTION_FRC];
         
-        if(sectionRFC){
-        
+        if([sectionRFC isEqualToString:@"YES"]){
+            NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+            
             if (fetchedResultsController) {
                 if (fetchedResultsController.fetchRequest.predicate) {
                     if (self.debug)
@@ -80,6 +80,10 @@
                           NSStringFromSelector(_cmd),
                           [error localizedDescription],
                           [error localizedFailureReason]);
+            
+                [dictionary setObject:fetchedResultsController forKey:FETCH_RC];
+                [self.arrayTable setObject:dictionary atIndexedSubscript:idx];
+
             } else {
                 if (self.debug)
                     NSLog(@"[%@ %@] no NSFetchedResultsController (yet?)",
@@ -87,8 +91,6 @@
                           NSStringFromSelector(_cmd));
             }
             
-            [dictionary setObject:fetchedResultsController forKey:FETCH_RC];
-            [self.arrayTable setObject:dictionary atIndexedSubscript:idx];
         }
         
     }];
@@ -99,10 +101,11 @@
     [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSMutableDictionary * dictionary = obj;
         
-        BOOL sectionRFC = [dictionary objectForKey:SECTION_FRC];
-        NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        NSString * sectionRFC = [dictionary objectForKey:SECTION_FRC];
         
-        if(sectionRFC){
+        
+        if([sectionRFC isEqualToString:@"YES"]){
+            NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
             if(fetchedResultsController){
                 NSFetchedResultsController *oldfrc = fetchedResultsController;
                 if (newfrc != oldfrc) {
@@ -137,10 +140,12 @@
     [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSMutableDictionary * dictionary = obj;
         
-        BOOL sectionRFC = [dictionary objectForKey:SECTION_FRC];
-        NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        NSString * sectionRFC = [dictionary objectForKey:SECTION_FRC];
         
-        if(sectionRFC){
+        if([sectionRFC isEqualToString:@"YES"]){
+            
+            NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+            
             NSInteger sectionInt =[[fetchedResultsController sections] count];
             if (sectionInt == 0) {
                 sectionInt = 1;
@@ -177,10 +182,11 @@
     [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSMutableDictionary * dictionary = obj;
         
-        BOOL sectionRFC = [dictionary objectForKey:SECTION_FRC];
-        NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        NSString * sectionRFC = [dictionary objectForKey:SECTION_FRC];
         
-        if(sectionRFC){
+        if([sectionRFC isEqualToString:@"YES"]){
+            NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        
             NSInteger sectionInt =[[fetchedResultsController sections] count];
             if (sectionInt == 0) {
                 sectionInt = 1;
@@ -199,10 +205,11 @@
     [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSMutableDictionary * dictionary = obj;
         
-        BOOL sectionRFC = [dictionary objectForKey:SECTION_FRC];
-        NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        NSString * sectionRFC = [dictionary objectForKey:SECTION_FRC];
         
-        if(sectionRFC){
+        if([sectionRFC isEqualToString:@"YES"]){
+            NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        
             NSInteger sectionInt =[[fetchedResultsController sections] count];
             if (sectionInt == 0) {
                 sectionInt = 1;
@@ -242,10 +249,11 @@
     [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSMutableDictionary * dictionary = obj;
         
-        BOOL sectionRFC = [dictionary objectForKey:SECTION_FRC];
-        NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        NSString * sectionRFC = [dictionary objectForKey:SECTION_FRC];
         
-        if(sectionRFC){
+        if([sectionRFC isEqualToString:@"YES"]){
+            NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+        
             NSInteger sectionInt =[[fetchedResultsController sections] count];
             if (sectionInt == 0) {
                 sectionInt = 1;

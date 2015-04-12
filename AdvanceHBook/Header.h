@@ -8,4 +8,4 @@
 
 #define MODEL_VERSION 1
 #define REPO_URL @"http://peps.webuda.com/books_readable.json"
-#define FORCE_RECHARGE YES
+#define FORCE_RECHARGE NO
