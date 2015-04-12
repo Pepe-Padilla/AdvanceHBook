@@ -10,7 +10,7 @@
         <attribute name="favorites" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="finished" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="lastDayAcces" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="lastPage" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastPage" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="pdfData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="portraid" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="title" attributeType="String" indexed="YES" syncable="YES"/>
@@ -39,10 +39,10 @@
         <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="tags" inverseEntity="Book" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Book" positionX="-63" positionY="-18" width="128" height="240"/>
-        <element name="Tag" positionX="-54" positionY="63" width="128" height="75"/>
         <element name="Author" positionX="-36" positionY="72" width="128" height="75"/>
+        <element name="Book" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="Gender" positionX="-18" positionY="81" width="128" height="75"/>
         <element name="Note" positionX="0" positionY="90" width="128" height="180"/>
+        <element name="Tag" positionX="-54" positionY="63" width="128" height="75"/>
     </elements>
 </model>

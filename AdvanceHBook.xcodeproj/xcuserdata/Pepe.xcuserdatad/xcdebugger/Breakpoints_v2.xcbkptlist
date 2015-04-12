@@ -22,7 +22,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AdvanceHBook/MXWLibraryViewController.m"
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AdvanceHBook/AppDelegate.m"
-            timestampString = "450525013.294339"
+            filePath = "AdvanceHBook/MXWLibraryMng.m"
+            timestampString = "450530175.670547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "-application:didFinishLaunchingWithOptions:"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-chargeLibrayWithError:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -26,7 +26,7 @@
 #pragma mark - manageLibry
 - (void) beginStack{
     
-    self.stack = [AGTCoreDataStack coreDataStackWithModelName:@"Model"];
+    self.stack = [AGTCoreDataStack coreDataStackWithModelName:@"BookModel"];
 
 }
 
@@ -84,19 +84,38 @@
 - (BOOL) chargeLibrayWithError:(NSError**) error{
     
     // Accedemos a UserDafaults
+    if (!self.stack) {
+        [self beginStack];
+    }
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSString * key = @"firstEntrance";
     
     NSDate*first=[defaults objectForKey:key];
     
-    if (!first) {
+    if (!first || FORCE_RECHARGE) {
         // Si no hay nada, lo añadimos
-        [defaults setObject:[NSDate date]
-                     forKey:key];
-        [defaults synchronize];
+        [self.stack zapAllData];
         
-        if (![self rechargeWithError:error]) return NO;
+        if (![self rechargeWithError:error]) {
+            return NO;
+        }
+        else {
+            __block BOOL saved = YES;
+            [self.stack saveWithErrorBlock:^(NSError *error) {
+                NSLog(@"Error al salvar: %@", error);
+                saved = NO;
+            }];
+            
+            
+            if (saved) {
+                [defaults setObject:[NSDate date]
+                             forKey:key];
+                [defaults synchronize];
+            } else return NO;
+            
+        }
     }
     
     return YES;
@@ -132,10 +151,6 @@
     NSMutableDictionary * authorsD = [[NSMutableDictionary alloc] init];
     NSMutableDictionary * tagsD = [[NSMutableDictionary alloc] init];
     NSMutableDictionary * genderD = [[NSMutableDictionary alloc] init];
-    
-    if (!self.stack) {
-        [self beginStack];
-    }
     
     if([jsonResults isKindOfClass:[NSDictionary class]]) {
         
@@ -215,10 +230,8 @@
         gender = [gender stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
     
-    NSURL * coverURL= [[NSURL alloc] initWithString:[[jDictionary objectForKey:@"image_url"]
-                                                     stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
-    NSURL * pdfURL= [[NSURL alloc] initWithString:[[jDictionary objectForKey:@"pdf_url"]
-                                                   stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
+    NSURL * coverURL= [[NSURL alloc] initWithString:[jDictionary objectForKey:@"image_url"]];
+    NSURL * pdfURL= [[NSURL alloc] initWithString:[jDictionary objectForKey:@"pdf_url"]];
     
     NSArray * aAuthors = [authors componentsSeparatedByString:@", "];
     NSArray * aTags = [tags componentsSeparatedByString:@", "];
@@ -238,7 +251,7 @@
     
     for (id strTag in aTags) {
         MXWTag * aTag = [*tagsD objectForKey:strTag];
-        if (!aTags) {
+        if (!aTag) {
             aTag = [MXWTag tagWithTagName: strTag
                                   context: self.stack.context];
             [*tagsD addEntriesFromDictionary:@{strTag : aTag}];
@@ -262,6 +275,20 @@
                     gender: aGender
                    context: self.stack.context];
     
+    
+}
+
+-(void) autoSave{
+    NSLog(@"Autosave");
+    
+    [self.stack saveWithErrorBlock:^(NSError *error) {
+        if (error.code != 1) {
+            NSLog(@"Error al salvar: %@", error);
+        }
+        
+    }];
+    
+    [self performSelector:@selector(autoSave) withObject:nil afterDelay:15];
     
 }
 

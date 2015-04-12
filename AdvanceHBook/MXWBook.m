@@ -22,7 +22,10 @@
         [self withImageURL: [NSURL URLWithString:self.extURLPortraid]
            completionBlock: ^(UIImage *image) {
                
-               self.portraidImg = image;
+               if (image) {
+                   [self setPortraidImg:image];
+               }
+               
            }];
         
     } else {
@@ -61,8 +64,8 @@
     n.finished = [NSNumber numberWithBool:NO];
     //lastDayAcces
     n.lastPage = 0;
-    n.extURLPDF = [aExtURLPDF path];
-    n.extURLPortraid = [aExtURLPortraid path];
+    n.extURLPDF = [aExtURLPDF absoluteString];
+    n.extURLPortraid = [aExtURLPortraid absoluteString];
     
     //tags
     [tags enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -83,7 +86,7 @@
 }
 
 -(void)withImageURL: (NSURL *) url
-    completionBlock:(void (^)(UIImage*image))completionBlock{
+    completionBlock: (void (^)(UIImage*image))completionBlock{
     
     
     // nos vamos a 2º plano a descargar la imagen
@@ -91,6 +94,10 @@
         
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *img = [UIImage imageWithData:data];
+        
+        if (!img) {
+            NSLog(@"image not found: %@",[url absoluteString]);
+        }
         
         // cuando la tengo, me voy a primer plano
         // llamo al completionBlock

@@ -16,8 +16,9 @@
 @property (nonatomic, strong) AGTCoreDataStack *stack;
 
 - (void) beginStack;
-- (BOOL) rechargeWithError:(NSError **) error;
+- (BOOL) chargeLibrayWithError:(NSError**) error;
 - (NSFetchedResultsController*) fetchForTitles;
 - (NSFetchedResultsController*) fetchForTags;
+- (void) autoSave;
 
 @end

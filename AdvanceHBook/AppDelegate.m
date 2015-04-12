@@ -25,12 +25,15 @@
     [self.library beginStack];
     
     NSError * error = nil;
-    if (![self.library rechargeWithError:&error]) {
+    if (![self.library chargeLibrayWithError:&error]) {
         NSLog(@"Error in library: %@",error.userInfo);
     }
     
-    MXWLibraryViewController *nVC = [[MXWLibraryViewController alloc] initWithFetchedResultsController: [self.library fetchForTitles]
-                                                                                                 style: UITableViewStylePlain];
+    [self.library autoSave];
+    
+    MXWLibraryViewController *nVC = [[MXWLibraryViewController alloc]
+                                     initWithFetchedResultsController: [self.library fetchForTitles]
+                                     style: UITableViewStylePlain];
     
     
     
