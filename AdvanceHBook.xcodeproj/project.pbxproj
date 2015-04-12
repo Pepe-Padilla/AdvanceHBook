@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B152F5DA1ADA65910019FFFB /* MXWLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */; };
 		B1897BC81AD9529E008D743C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BC71AD9529E008D743C /* main.m */; };
 		B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BCA1AD9529E008D743C /* AppDelegate.m */; };
 		B1897BD31AD9529E008D743C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1897BD21AD9529E008D743C /* Images.xcassets */; };
@@ -41,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B152F5D81ADA65910019FFFB /* MXWLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWLibraryViewController.h; sourceTree = "<group>"; };
+		B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWLibraryViewController.m; sourceTree = "<group>"; };
 		B1897BC21AD9529E008D743C /* AdvanceHBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvanceHBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1897BC61AD9529E008D743C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1897BC71AD9529E008D743C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 			children = (
 				B1897BF11AD98475008D743C /* AGTCoreDataTableViewController.h */,
 				B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */,
+				B152F5D81ADA65910019FFFB /* MXWLibraryViewController.h */,
+				B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */,
 				B1897C171AD98A46008D743C /* MXWNote.m in Sources */,
 				B1897BF41AD98475008D743C /* AGTCoreDataTableViewController.m in Sources */,
+				B152F5DA1ADA65910019FFFB /* MXWLibraryViewController.m in Sources */,
 				B1897C041AD989FD008D743C /* _MXWAuthor.m in Sources */,
 				B1897C151AD98A46008D743C /* MXWBook.m in Sources */,
 				B1897C051AD989FD008D743C /* _MXWBook.m in Sources */,
@@ -535,6 +541,7 @@
 				B1897BE71AD9529E008D743C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1897BE81AD9529E008D743C /* Build configuration list for PBXNativeTarget "AdvanceHBookTests" */ = {
 			isa = XCConfigurationList;
@@ -543,6 +550,7 @@
 				B1897BEA1AD9529E008D743C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

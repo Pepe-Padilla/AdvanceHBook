@@ -9,7 +9,15 @@
 @import Foundation;
 @import UIKit;
 @import CoreData;
+@class AGTCoreDataStack;
 
 @interface MXWLibraryMng : NSObject
+
+@property (nonatomic, strong) AGTCoreDataStack *stack;
+
+- (void) beginStack;
+- (BOOL) rechargeWithError:(NSError **) error;
+- (NSFetchedResultsController*) fetchForTitles;
+- (NSFetchedResultsController*) fetchForTags;
 
 @end

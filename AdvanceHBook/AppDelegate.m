@@ -7,8 +7,12 @@
 //
 
 #import "AppDelegate.h"
+#import "MXWLibraryMng.h"
+#import "MXWLibraryViewController.h"
 
 @interface AppDelegate ()
+
+@property (strong,nonatomic) MXWLibraryMng * library;
 
 @end
 
@@ -17,6 +21,32 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.library = [[MXWLibraryMng alloc] init];
+    [self.library beginStack];
+    
+    NSError * error = nil;
+    if (![self.library rechargeWithError:&error]) {
+        NSLog(@"Error in library: %@",error.userInfo);
+    }
+    
+    MXWLibraryViewController *nVC = [[MXWLibraryViewController alloc] initWithFetchedResultsController: [self.library fetchForTitles]
+                                                                                                 style: UITableViewStylePlain];
+    
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:
+                   [[UIScreen mainScreen] bounds]];
+    
+    UINavigationController *nav = [UINavigationController new];
+    
+    [nav pushViewController:nVC animated:NO];
+    
+    self.window.rootViewController = nav;
+    
+    [self.window makeKeyAndVisible];
+    
+    //[self autoSave];
+    
     return YES;
 }
 

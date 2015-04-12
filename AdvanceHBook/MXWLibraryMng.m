@@ -19,19 +19,6 @@
 @interface MXWLibraryMng()
 
 
-@property (nonatomic, strong) AGTCoreDataStack *stack;
-
-// Array de MXWBooks
-@property (strong,nonatomic) NSMutableArray * books;
-// Titulos ordenados Alfabeticamente
-@property (strong,nonatomic) NSArray * oTitles;
-
-// referencia ordenada a books para no duplicar libros
-@property (strong,nonatomic) NSMutableArray * titles;
-@property (strong,nonatomic) NSMutableArray * favorites;
-@property (strong,nonatomic) NSMutableDictionary * dTags;
-@property (strong,nonatomic) NSMutableDictionary * dAuthors;
-
 @end
 
 @implementation MXWLibraryMng
@@ -67,14 +54,39 @@
     return fc;
 }
 
+- (NSFetchedResultsController*) fetchForTags {
+    
+    if (!self.stack) {
+        [self beginStack];
+    }
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWTag entityName]];
+    
+    req.sortDescriptors = @[[NSSortDescriptor
+                             sortDescriptorWithKey:MXWTagAttributes.tagName
+                             ascending:YES
+                             selector:@selector(caseInsensitiveCompare:)]];
+    req.fetchBatchSize = 20;
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
+                                      initWithFetchRequest:req
+                                      managedObjectContext:self.stack.context
+                                      sectionNameKeyPath:MXWTagAttributes.tagName
+                                      cacheName:MXWTagRelationships.books];
+    
+    return fc;
+}
+
 
 
 #pragma mark - chargeLibrary
 - (BOOL) chargeLibrayWithError:(NSError**) error{
+    
     // Accedemos a UserDafaults
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString * key = @"first entrance";
+    NSString * key = @"firstEntrance";
     
     NSDate*first=[defaults objectForKey:key];
     
@@ -87,7 +99,7 @@
         if (![self rechargeWithError:error]) return NO;
     }
     
-    return true;
+    return YES;
 }
 
 -(BOOL) rechargeWithError:(NSError **) error {
@@ -96,7 +108,11 @@
     NSString * jString = nil;
     
     jString = [self getFromRepositoryWithError:error];
-        
+    
+    if (jString == nil) {
+        NSLog(@"Error at repo: %@",*error);
+        return NO;
+    }
     
     
     // Accedemos a al JSON
@@ -106,21 +122,34 @@
                                                      options:0
                                                        error:error];
     
-    if (!jsonResults) {
+    if (jsonResults == nil) {
         NSLog(@"Error at JSON: %@",*error);
         return NO;
     }
     
     
     // trabajamos con el JSON
+    NSMutableDictionary * authorsD = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary * tagsD = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary * genderD = [[NSMutableDictionary alloc] init];
+    
+    if (!self.stack) {
+        [self beginStack];
+    }
+    
     if([jsonResults isKindOfClass:[NSDictionary class]]) {
         
-        [self manageBooksWithDictionary:jsonResults];
+        [self manageBooksWithDictionary: jsonResults
+                      authorsDictionary: &authorsD
+                         tagsDictionary: &tagsD
+                        genderDicionary: &genderD];
         
     } else if([jsonResults isKindOfClass:[NSArray class]]) {
         
-        [self manageBooksWithArray:jsonResults];
-        
+        [self manageBooksWithArray: jsonResults
+                 authorsDictionary: &authorsD
+                    tagsDictionary: &tagsD
+                   genderDicionary: &genderD];
         
     } else {
         
@@ -152,24 +181,38 @@
 }
 
 
-- (void) manageBooksWithArray:(NSArray*) jArray {
+- (void) manageBooksWithArray:(NSArray*) jArray
+            authorsDictionary:(NSMutableDictionary**) authorsD
+               tagsDictionary:(NSMutableDictionary**) tagsD
+              genderDicionary: (NSMutableDictionary**) genderD{
     for (id object in jArray) {
-        [self manageBooksWithDictionary:object];
+        [self manageBooksWithDictionary: object
+                      authorsDictionary: authorsD
+                         tagsDictionary: tagsD
+                        genderDicionary: genderD];
     }
 }
 
-- (void) manageBooksWithDictionary:(NSDictionary*) jDictionary {
+- (void) manageBooksWithDictionary:(NSDictionary*) jDictionary
+                 authorsDictionary:(NSMutableDictionary**) authorsD
+                    tagsDictionary:(NSMutableDictionary**) tagsD
+                   genderDicionary: (NSMutableDictionary**) genderD{
+    
+    
+    
     NSString * title= [[jDictionary objectForKey:@"title"]
                        stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString * authors= [[jDictionary objectForKey:@"authors"]
                          stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString * tags= [[jDictionary objectForKey:@"tags"]
                       stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString * gender = [[jDictionary objectForKey:@"gender"]
-                         stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString * gender = [jDictionary objectForKey:@"gender"];
+    
     
     if (!gender) {
         gender = @"No gender";
+    } else {
+        gender = [gender stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     }
     
     NSURL * coverURL= [[NSURL alloc] initWithString:[[jDictionary objectForKey:@"image_url"]
@@ -177,18 +220,47 @@
     NSURL * pdfURL= [[NSURL alloc] initWithString:[[jDictionary objectForKey:@"pdf_url"]
                                                    stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]];
     
-    
     NSArray * aAuthors = [authors componentsSeparatedByString:@", "];
     NSArray * aTags = [tags componentsSeparatedByString:@", "];
     
+    NSMutableArray *aa = [[NSMutableArray alloc] init];
+    NSMutableArray *at = [[NSMutableArray alloc] init];
     
-    MXWBook * book = [MXWBook bookWithTitle: title
-                                     urlPDF: pdfURL
-                                urlPortraid: coverURL
-                                       tags:<#(NSArray *)#>
-                                    authors:<#(NSArray *)#>
-                                     gender:<#(MXWGender *)#>
-                                    context:<#(NSManagedObjectContext *)#>]];
+    for (id strAuthor in aAuthors) {
+        MXWAuthor * anAuthor = [*authorsD objectForKey:strAuthor];
+        if (!anAuthor) {
+            anAuthor = [MXWAuthor authorWithAuthorName:strAuthor
+                                               context:self.stack.context];
+            [*authorsD addEntriesFromDictionary:@{strAuthor : anAuthor}];
+        }
+        [aa addObject:anAuthor];
+    }
+    
+    for (id strTag in aTags) {
+        MXWTag * aTag = [*tagsD objectForKey:strTag];
+        if (!aTags) {
+            aTag = [MXWTag tagWithTagName: strTag
+                                  context: self.stack.context];
+            [*tagsD addEntriesFromDictionary:@{strTag : aTag}];
+        }
+        [at addObject:aTag];
+    }
+    
+    MXWGender * aGender = [*genderD objectForKey:gender];
+    
+    if(!aGender){
+        aGender = [MXWGender genderWithGenderName:gender
+                                          context:self.stack.context];
+        [*genderD addEntriesFromDictionary:@{gender : aGender}];
+    }
+    
+    [MXWBook bookWithTitle: title
+                    urlPDF: pdfURL
+               urlPortraid: coverURL
+                      tags: at
+                   authors: aa
+                    gender: aGender
+                   context: self.stack.context];
     
     
 }
