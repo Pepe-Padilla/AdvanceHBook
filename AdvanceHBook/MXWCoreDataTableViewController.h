@@ -1,34 +1,28 @@
 //
-//  AGTCoreDataTableViewController.h
+//  MXWCoreDataTableViewController.h
+//  AdvanceHBook
 //
-//
-//  Created by Fernando Rodríguez Romero on 1/24/13.
-//  Copyright (c) 2013 Fernando. All rights reserved.
-//
-// This class mostly just copies the code from NSFetchedResultsController's documentation page
-//   into a subclass of UITableViewController.
-//
-// Just subclass this and set the fetchedResultsController.
-// The only UITableViewDataSource method you'll HAVE to implement is tableView:cellForRowAtIndexPath:.
-// And you can use the NSFetchedResultsController method objectAtIndexPath: to do it.
-//
-// Remember that once you create an NSFetchedResultsController, you CANNOT modify its @propertys.
-// If you want new fetch parameters (predicate, sorting, etc.),
-//  create a NEW NSFetchedResultsController and set this class's fetchedResultsController @property again.
+//  Created by Pepe Padilla on 15/12/04.
+//  Copyright (c) 2015 maxeiware. All rights reserved.
 //
 
 @import Foundation;
 @import CoreData;
 @import UIKit;
 
-@interface AGTCoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+#define TITLE_SECTION @"TITLE_SECTION"
+#define SECTION_FRC @"SECTION_FRC"
+#define FETCH_RC @"FETCH_RC"
+#define NOFRC_COUNT @"NOFRC_COUNT"
+
+@interface MXWCoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 
-
+@property (strong, nonatomic) NSMutableArray * arrayTable;
 
 
 // The controller (this class fetches nothing if this is not set).
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+//@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 // Causes the fetchedResultsController to refetch the data.
 // You almost certainly never need to call this.
@@ -57,8 +51,11 @@
 @property BOOL debug;
 
 
--(id) initWithFetchedResultsController: (NSFetchedResultsController *) aFetchedResultsController
-                                 style: (UITableViewStyle) aStyle;
+//-(id) initWithFetchedResultsController: (NSFetchedResultsController *) aFetchedResultsController
+//                                 style: (UITableViewStyle) aStyle;
 
+-(id) initWithArray: (NSMutableArray *) arrayOfFetchC
+              style: (UITableViewStyle) aStyle;
 
+-(id) fetchedObjectAtIndexPath:(NSIndexPath *)indexPath;
 @end

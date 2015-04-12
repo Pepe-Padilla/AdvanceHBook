@@ -60,20 +60,60 @@
         [self beginStack];
     }
     
-    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWTag entityName]];
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWBook entityName]];
     
-    req.sortDescriptors = @[[NSSortDescriptor
-                             sortDescriptorWithKey:MXWTagAttributes.tagName
-                             ascending:YES
-                             selector:@selector(caseInsensitiveCompare:)]];
+    //NSString * sortVal = [NSString stringWithFormat:@"%@.@%@",MXWTagRelationships.books,MXWBookAttributes.title];
+    
+    //sortedArrayUsingDescriptors
+    //caseInsensitiveCompare
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:MXWBookAttributes.title
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)],
+                            [NSSortDescriptor sortDescriptorWithKey:[MXWBookRelationships.tags stringByAppendingString:@".tagName"]
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)]];
     req.fetchBatchSize = 20;
+    
+    //req.predicate = [NSPredicate predicateWithFormat:<#(NSString *), ...#>];
     
     // FetchedResultsController
     NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
                                       initWithFetchRequest:req
                                       managedObjectContext:self.stack.context
-                                      sectionNameKeyPath:MXWTagAttributes.tagName
-                                      cacheName:MXWTagRelationships.books];
+                                      sectionNameKeyPath:[MXWBookRelationships.tags stringByAppendingString:@".tagName"]
+                                      cacheName:nil];//[MXWBookRelationships.tags stringByAppendingString:@".tagName"]];
+    
+    return fc;
+}
+
+- (NSFetchedResultsController*) fetchForGenders {
+    
+    if (!self.stack) {
+        [self beginStack];
+    }
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWBook entityName]];
+    
+    NSString * sortVal = [NSString stringWithFormat:@"%@.%@",MXWBookRelationships.genders,MXWGenderAttributes.genderName];
+    
+    //sortedArrayUsingDescriptors
+    //caseInsensitiveCompare
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:sortVal
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)],
+                            [NSSortDescriptor sortDescriptorWithKey:MXWBookAttributes.title
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)]];
+    req.fetchBatchSize = 20;
+    
+    //req.predicate = [NSPredicate predicateWithFormat:<#(NSString *), ...#>];
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
+                                      initWithFetchRequest:req
+                                      managedObjectContext:self.stack.context
+                                      sectionNameKeyPath:sortVal
+                                      cacheName:nil];//[MXWBookRelationships.tags stringByAppendingString:@".tagName"]];
     
     return fc;
 }

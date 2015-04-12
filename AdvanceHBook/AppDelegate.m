@@ -31,9 +31,14 @@
     
     [self.library autoSave];
     
+    NSMutableDictionary * dGenders = [NSMutableDictionary
+                                      dictionaryWithDictionary:@{TITLE_SECTION : @"Titles",
+                                                                 SECTION_FRC : @YES,
+                                                                 FETCH_RC : [self.library fetchForTitles]}];
+    NSMutableArray * aGenders = [NSMutableArray arrayWithArray:@[dGenders]];
+    
     MXWLibraryViewController *nVC = [[MXWLibraryViewController alloc]
-                                     initWithFetchedResultsController: [self.library fetchForTitles]
-                                     style: UITableViewStylePlain];
+                                     initWithArray:aGenders style:UITableViewStylePlain];
     
     
     

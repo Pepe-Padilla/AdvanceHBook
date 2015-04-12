@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AdvanceHBook/MXWLibraryViewController.m"
-            timestampString = "450523510.306864"
+            timestampString = "450543668.652077"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -41,13 +41,141 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AdvanceHBook/MXWLibraryMng.m"
-            timestampString = "450530175.670547"
+            filePath = "AdvanceHBook/MXWCoreDataTableViewController.m"
+            timestampString = "450564566.409866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
-            landmarkName = "-chargeLibrayWithError:"
+            startingLineNumber = "292"
+            endingLineNumber = "292"
+            landmarkName = "-tableView:sectionForSectionIndexTitle:atIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdvanceHBook/MXWCoreDataTableViewController.m"
+            timestampString = "450564566.409866"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
+            landmarkName = "-sectionIndexTitlesForTableView:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdvanceHBook/MXWCoreDataTableViewController.m"
+            timestampString = "450564566.409866"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "-tableView:titleForHeaderInSection:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdvanceHBook/MXWCoreDataTableViewController.m"
+            timestampString = "450563896.944734"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "-numberOfSectionsInTableView:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MXWCoreDataTableViewController numberOfSectionsInTableView:]"
+                  moduleName = "AdvanceHBook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Pepe/Desktop/Proyects/AdvanceHBook/AdvanceHBook/MXWCoreDataTableViewController.m"
+                  timestampString = "450563647.604042"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__62-[MXWCoreDataTableViewController numberOfSectionsInTableView:]_block_invoke"
+                  moduleName = "AdvanceHBook"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/Pepe/Desktop/Proyects/AdvanceHBook/AdvanceHBook/MXWCoreDataTableViewController.m"
+                  timestampString = "450563647.604202"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "63">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdvanceHBook/MXWCoreDataTableViewController.m"
+            timestampString = "450564566.409866"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "-tableView:titleForHeaderInSection:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdvanceHBook/MXWCoreDataTableViewController.m"
+            timestampString = "450563890.524751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "-fetchedObjectAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdvanceHBook/MXWCoreDataTableViewController.m"
+            timestampString = "450563934.815373"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

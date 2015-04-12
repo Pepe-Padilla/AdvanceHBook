@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B152F5DA1ADA65910019FFFB /* MXWLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */; };
+		B152F5DD1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */; };
 		B1897BC81AD9529E008D743C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BC71AD9529E008D743C /* main.m */; };
 		B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BCA1AD9529E008D743C /* AppDelegate.m */; };
 		B1897BD31AD9529E008D743C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1897BD21AD9529E008D743C /* Images.xcassets */; };
@@ -15,7 +16,6 @@
 		B1897BE21AD9529E008D743C /* AdvanceHBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BE11AD9529E008D743C /* AdvanceHBookTests.m */; };
 		B1897BED1AD977BD008D743C /* BookModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1897BEB1AD977BD008D743C /* BookModel.xcdatamodeld */; };
 		B1897BF31AD98475008D743C /* AGTCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF01AD98475008D743C /* AGTCoreDataStack.m */; };
-		B1897BF41AD98475008D743C /* AGTCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */; };
 		B1897BF91AD986D8008D743C /* MXWBaseManagedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */; };
 		B1897C041AD989FD008D743C /* _MXWAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BFB1AD989FD008D743C /* _MXWAuthor.m */; };
 		B1897C051AD989FD008D743C /* _MXWBook.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BFD1AD989FD008D743C /* _MXWBook.m */; };
@@ -44,6 +44,8 @@
 /* Begin PBXFileReference section */
 		B152F5D81ADA65910019FFFB /* MXWLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWLibraryViewController.h; sourceTree = "<group>"; };
 		B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWLibraryViewController.m; sourceTree = "<group>"; };
+		B152F5DB1ADAA37D0019FFFB /* MXWCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWCoreDataTableViewController.h; sourceTree = "<group>"; };
+		B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWCoreDataTableViewController.m; sourceTree = "<group>"; };
 		B1897BC21AD9529E008D743C /* AdvanceHBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvanceHBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1897BC61AD9529E008D743C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1897BC71AD9529E008D743C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -57,8 +59,6 @@
 		B1897BEC1AD977BD008D743C /* BookModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BookModel.xcdatamodel; sourceTree = "<group>"; };
 		B1897BEF1AD98460008D743C /* AGTCoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataStack.h; sourceTree = "<group>"; };
 		B1897BF01AD98475008D743C /* AGTCoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataStack.m; sourceTree = "<group>"; };
-		B1897BF11AD98475008D743C /* AGTCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataTableViewController.h; sourceTree = "<group>"; };
-		B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataTableViewController.m; sourceTree = "<group>"; };
 		B1897BF61AD984E6008D743C /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		B1897BF71AD986D8008D743C /* MXWBaseManagedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWBaseManagedObject.h; sourceTree = "<group>"; };
 		B1897BF81AD986D8008D743C /* MXWBaseManagedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWBaseManagedObject.m; sourceTree = "<group>"; };
@@ -189,8 +189,8 @@
 		B1897BF51AD9849A008D743C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1897BF11AD98475008D743C /* AGTCoreDataTableViewController.h */,
-				B1897BF21AD98475008D743C /* AGTCoreDataTableViewController.m */,
+				B152F5DB1ADAA37D0019FFFB /* MXWCoreDataTableViewController.h */,
+				B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */,
 				B152F5D81ADA65910019FFFB /* MXWLibraryViewController.h */,
 				B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */,
 			);
@@ -337,7 +337,6 @@
 			files = (
 				B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */,
 				B1897C171AD98A46008D743C /* MXWNote.m in Sources */,
-				B1897BF41AD98475008D743C /* AGTCoreDataTableViewController.m in Sources */,
 				B152F5DA1ADA65910019FFFB /* MXWLibraryViewController.m in Sources */,
 				B1897C041AD989FD008D743C /* _MXWAuthor.m in Sources */,
 				B1897C151AD98A46008D743C /* MXWBook.m in Sources */,
@@ -347,6 +346,7 @@
 				B1897C0C1AD98A2B008D743C /* MXWAuthor.m in Sources */,
 				B1897C081AD989FD008D743C /* _MXWTag.m in Sources */,
 				B1897BF31AD98475008D743C /* AGTCoreDataStack.m in Sources */,
+				B152F5DD1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m in Sources */,
 				B1897C161AD98A46008D743C /* MXWGender.m in Sources */,
 				B1897C181AD98A46008D743C /* MXWTag.m in Sources */,
 				B1897BF91AD986D8008D743C /* MXWBaseManagedObject.m in Sources */,

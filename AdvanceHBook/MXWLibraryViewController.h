@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 maxeiware. All rights reserved.
 //
 
-#import "AGTCoreDataTableViewController.h"
+#import "MXWCoreDataTableViewController.h"
 
-@interface MXWLibraryViewController : AGTCoreDataTableViewController
+@interface MXWLibraryViewController : MXWCoreDataTableViewController
 
 @end

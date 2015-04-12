@@ -19,6 +19,7 @@
 - (BOOL) chargeLibrayWithError:(NSError**) error;
 - (NSFetchedResultsController*) fetchForTitles;
 - (NSFetchedResultsController*) fetchForTags;
+- (NSFetchedResultsController*) fetchForGenders;
 - (void) autoSave;
 
 @end
