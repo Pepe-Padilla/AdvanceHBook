@@ -14,4 +14,6 @@
                        gender: (MXWGender*) gender
                       context: (NSManagedObjectContext *) context;
 
+- (void) downloadPDFwithCompletionBlock: (void (^)(bool downloaded))completionBlock;
+
 @end

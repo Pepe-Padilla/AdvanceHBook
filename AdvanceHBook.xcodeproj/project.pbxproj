@@ -29,6 +29,14 @@
 		B1897C181AD98A46008D743C /* MXWTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C141AD98A46008D743C /* MXWTag.m */; };
 		B1897C1B1AD99724008D743C /* Book_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B1897C1A1AD99724008D743C /* Book_placeholder.png */; };
 		B1897C1F1AD9C245008D743C /* MXWLibraryMng.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C1E1AD9C245008D743C /* MXWLibraryMng.m */; };
+		B1B979BF1ADC69CC00A3D5D8 /* MXWBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B979BD1ADC69CC00A3D5D8 /* MXWBookViewController.m */; };
+		B1B979C01ADC69CC00A3D5D8 /* MXWBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B979BE1ADC69CC00A3D5D8 /* MXWBookViewController.xib */; };
+		B1B979C21ADC738800A3D5D8 /* TheEnd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C11ADC738800A3D5D8 /* TheEnd.jpg */; };
+		B1B979C51ADC77FA00A3D5D8 /* starDOWN.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C31ADC77FA00A3D5D8 /* starDOWN.png */; };
+		B1B979C61ADC77FA00A3D5D8 /* starUP.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C41ADC77FA00A3D5D8 /* starUP.png */; };
+		B1B979CA1ADC7C5600A3D5D8 /* pdf.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C71ADC7C5600A3D5D8 /* pdf.gif */; };
+		B1B979CB1ADC7C5600A3D5D8 /* pdfdownload.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C81ADC7C5600A3D5D8 /* pdfdownload.png */; };
+		B1B979CC1ADC7C5600A3D5D8 /* pdfdownloading.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C91ADC7C5600A3D5D8 /* pdfdownloading.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +93,15 @@
 		B1897C1A1AD99724008D743C /* Book_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Book_placeholder.png; sourceTree = "<group>"; };
 		B1897C1D1AD9C245008D743C /* MXWLibraryMng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWLibraryMng.h; sourceTree = "<group>"; };
 		B1897C1E1AD9C245008D743C /* MXWLibraryMng.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWLibraryMng.m; sourceTree = "<group>"; };
+		B1B979BC1ADC69CC00A3D5D8 /* MXWBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWBookViewController.h; sourceTree = "<group>"; };
+		B1B979BD1ADC69CC00A3D5D8 /* MXWBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWBookViewController.m; sourceTree = "<group>"; };
+		B1B979BE1ADC69CC00A3D5D8 /* MXWBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXWBookViewController.xib; sourceTree = "<group>"; };
+		B1B979C11ADC738800A3D5D8 /* TheEnd.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = TheEnd.jpg; sourceTree = "<group>"; };
+		B1B979C31ADC77FA00A3D5D8 /* starDOWN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starDOWN.png; sourceTree = "<group>"; };
+		B1B979C41ADC77FA00A3D5D8 /* starUP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starUP.png; sourceTree = "<group>"; };
+		B1B979C71ADC7C5600A3D5D8 /* pdf.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pdf.gif; sourceTree = "<group>"; };
+		B1B979C81ADC7C5600A3D5D8 /* pdfdownload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdfdownload.png; sourceTree = "<group>"; };
+		B1B979C91ADC7C5600A3D5D8 /* pdfdownloading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pdfdownloading.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +210,9 @@
 				B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */,
 				B152F5D81ADA65910019FFFB /* MXWLibraryViewController.h */,
 				B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */,
+				B1B979BC1ADC69CC00A3D5D8 /* MXWBookViewController.h */,
+				B1B979BD1ADC69CC00A3D5D8 /* MXWBookViewController.m */,
+				B1B979BE1ADC69CC00A3D5D8 /* MXWBookViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -229,6 +249,12 @@
 		B1897C1C1AD99729008D743C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				B1B979C71ADC7C5600A3D5D8 /* pdf.gif */,
+				B1B979C81ADC7C5600A3D5D8 /* pdfdownload.png */,
+				B1B979C91ADC7C5600A3D5D8 /* pdfdownloading.gif */,
+				B1B979C31ADC77FA00A3D5D8 /* starDOWN.png */,
+				B1B979C41ADC77FA00A3D5D8 /* starUP.png */,
+				B1B979C11ADC738800A3D5D8 /* TheEnd.jpg */,
 				B1897C1A1AD99724008D743C /* Book_placeholder.png */,
 			);
 			name = img;
@@ -315,9 +341,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1B979C01ADC69CC00A3D5D8 /* MXWBookViewController.xib in Resources */,
 				B1897BD61AD9529E008D743C /* LaunchScreen.xib in Resources */,
+				B1B979CC1ADC7C5600A3D5D8 /* pdfdownloading.gif in Resources */,
 				B1897BD31AD9529E008D743C /* Images.xcassets in Resources */,
+				B1B979C51ADC77FA00A3D5D8 /* starDOWN.png in Resources */,
+				B1B979CB1ADC7C5600A3D5D8 /* pdfdownload.png in Resources */,
 				B1897C1B1AD99724008D743C /* Book_placeholder.png in Resources */,
+				B1B979CA1ADC7C5600A3D5D8 /* pdf.gif in Resources */,
+				B1B979C21ADC738800A3D5D8 /* TheEnd.jpg in Resources */,
+				B1B979C61ADC77FA00A3D5D8 /* starUP.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +371,7 @@
 				B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */,
 				B1897C171AD98A46008D743C /* MXWNote.m in Sources */,
 				B152F5DA1ADA65910019FFFB /* MXWLibraryViewController.m in Sources */,
+				B1B979BF1ADC69CC00A3D5D8 /* MXWBookViewController.m in Sources */,
 				B1897C041AD989FD008D743C /* _MXWAuthor.m in Sources */,
 				B1897C151AD98A46008D743C /* MXWBook.m in Sources */,
 				B1897C051AD989FD008D743C /* _MXWBook.m in Sources */,

@@ -12,6 +12,31 @@
 @implementation MXWBook
 
 #pragma mark - special seters and getters
+- (void) downloadPDFwithCompletionBlock: (void (^)(bool downloaded))completionBlock {
+    
+    
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        
+        
+        BOOL done = NO;
+        
+        
+        if(self.pdfData == nil) {
+            NSData* pdf = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.extURLPDF]];
+            
+            if (pdf != nil) {
+                self.pdfData = pdf;
+                done = YES;
+            }
+            
+        } else done = YES;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completionBlock(done);
+        });
+    });
+}
+
 - (UIImage *) portraidImg {
     
     UIImage * img = nil;
