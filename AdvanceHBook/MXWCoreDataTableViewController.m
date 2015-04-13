@@ -7,6 +7,7 @@
 //
 
 #import "MXWCoreDataTableViewController.h"
+#import "Header.h"
 
 
 
@@ -302,7 +303,7 @@
 }
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return self.aTitle;
+    return @[]; //self.aTitle;
     //return [self.fetchedResultsController sectionIndexTitles];
 }
 

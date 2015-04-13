@@ -8,6 +8,9 @@
 
 #import "MXWCoreDataTableViewController.h"
 
+
 @interface MXWLibraryViewController : MXWCoreDataTableViewController
+
+- (void) manageStart;
 
 @end

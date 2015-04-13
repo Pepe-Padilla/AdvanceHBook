@@ -10,13 +10,71 @@
 #import "MXWTag.h"
 #import "MXWBook.h"
 #import "MXWAuthor.h"
-
+#import "MXWLibraryMng.h"
+#import "Header.h"
 
 @interface MXWLibraryViewController ()
+
+@property (strong,nonatomic) MXWLibraryMng * library;
+@property (strong,nonatomic) NSMutableDictionary * mdHeader;
+@property (strong,nonatomic) NSMutableDictionary * mdFavorites;
+@property (strong,nonatomic) NSMutableDictionary * mdGenders;
+@property (strong,nonatomic) NSMutableDictionary * mdTitles;
+@property (strong,nonatomic) NSMutableArray * maTags;
+@property (strong,nonatomic) NSMutableArray * maAuthors;
 
 @end
 
 @implementation MXWLibraryViewController
+
+//-(id) initWithArray:(NSMutableArray *)arrayOfFetchC style:(UITableViewStyle)aStyle {
+//
+//}
+
+- (id) initWithStyle:(UITableViewStyle)style{
+    if (self=[super initWithStyle:style]) {
+        
+        _library = [[MXWLibraryMng alloc] init];
+        _mdHeader = [[NSMutableDictionary alloc] init];
+        _mdFavorites = [[NSMutableDictionary alloc] init];
+        _mdGenders = [[NSMutableDictionary alloc] init];
+        _maTags = [[NSMutableArray alloc] init];
+        _maAuthors = [[NSMutableArray alloc] init];
+        
+    }
+    
+    return self;
+}
+
+- (void) manageStart {
+    
+    [self.library beginStack];
+    
+    NSError * error = nil;
+    if (![self.library chargeLibrayWithError:&error]) {
+        NSLog(@"Error in library: %@",error.userInfo);
+    }
+    
+    
+    
+    self.mdHeader = [NSMutableDictionary
+                     dictionaryWithDictionary:@{TITLE_SECTION : @"",
+                                                SECTION_FRC : @"NO",
+                                                NOFRC_COUNT : @1 }];
+    
+    self.mdFavorites = [self.library fetchForFavorites];
+    self.mdGenders = [self.library fetchForGenders];
+    self.maTags = [self.library fetchForTags];
+    self.maAuthors = [self.library fetchForAuthors];
+    
+    NSMutableArray * aSections = [NSMutableArray arrayWithArray:@[self.mdFavorites]];
+    
+    [aSections addObjectsFromArray:self.maTags];
+    
+    self.arrayTable = aSections;
+    [self performFetch];
+    [self.library autoSave];
+}
 
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{

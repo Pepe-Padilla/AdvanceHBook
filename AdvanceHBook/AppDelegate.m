@@ -9,10 +9,10 @@
 #import "AppDelegate.h"
 #import "MXWLibraryMng.h"
 #import "MXWLibraryViewController.h"
+#import "Header.h"
 
 @interface AppDelegate ()
 
-@property (strong,nonatomic) MXWLibraryMng * library;
 
 @end
 
@@ -21,37 +21,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.library = [[MXWLibraryMng alloc] init];
-    [self.library beginStack];
-    
-    NSError * error = nil;
-    if (![self.library chargeLibrayWithError:&error]) {
-        NSLog(@"Error in library: %@",error.userInfo);
-    }
-    
-    [self.library autoSave];
-    
-    NSMutableDictionary * dHeader = [NSMutableDictionary
-                                     dictionaryWithDictionary:@{TITLE_SECTION : @"",
-                                                                SECTION_FRC : @"NO",
-                                                                NOFRC_COUNT : @1 }];
-    
-    NSMutableDictionary * dFavorites = [NSMutableDictionary
-                                        dictionaryWithDictionary:@{TITLE_SECTION : @"Favorites",
-                                                                   SECTION_FRC : @"YES",
-                                                                   FETCH_RC : [self.library fetchForFavorites]}];
-    
-    NSMutableDictionary * dGenders = [NSMutableDictionary
-                                      dictionaryWithDictionary:@{TITLE_SECTION : @"Titles",
-                                                                 SECTION_FRC : @"YES",
-                                                                 FETCH_RC : [self.library fetchForGenders]}];
-    
-    NSMutableArray * aGenders = [NSMutableArray arrayWithArray:@[dHeader,dFavorites,dGenders]];
-    
     MXWLibraryViewController *nVC = [[MXWLibraryViewController alloc]
-                                     initWithArray:aGenders style:UITableViewStylePlain];
-    [nVC performFetch];
-    
+                                     initWithStyle:UITableViewStylePlain];
+    [nVC manageStart];
     
     
     self.window = [[UIWindow alloc] initWithFrame:

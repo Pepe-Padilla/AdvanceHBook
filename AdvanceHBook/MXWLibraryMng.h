@@ -17,10 +17,11 @@
 
 - (void) beginStack;
 - (BOOL) chargeLibrayWithError:(NSError**) error;
-- (NSFetchedResultsController*) fetchForTitles;
-- (NSFetchedResultsController*) fetchForTags;
-- (NSFetchedResultsController*) fetchForGenders;
-- (NSFetchedResultsController*) fetchForFavorites;
+- (NSMutableDictionary*) fetchForTitles;
+- (NSMutableDictionary*) fetchForGenders;
+- (NSMutableDictionary*) fetchForFavorites;
+- (NSMutableArray*) fetchForTags;
+- (NSMutableArray*) fetchForAuthors;
 - (void) autoSave;
 
 @end

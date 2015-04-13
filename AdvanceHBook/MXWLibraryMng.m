@@ -30,7 +30,83 @@
 
 }
 
-- (NSFetchedResultsController*) fetchForTitles {
+- (NSMutableArray*) fetchBooksfromFetchOfN2NSections: (NSFetchedResultsController *) aFetch {
+    NSMutableArray * arr = [[NSMutableArray alloc] init];
+    
+    NSError * error;
+    
+    
+    if (![aFetch performFetch:&error]) {
+        NSLog(@"Error ar fetchBooksfromFetchOfN2NSections:atributeForTitleSections: for Errro: %@",error);
+    }
+    
+    
+    NSArray* arrObj=[aFetch fetchedObjects];
+    
+    for (id obj in arrObj) {
+        
+        if ([obj isKindOfClass:[MXWTag class]]) {
+            MXWTag * aTag = obj;
+            
+            NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWBook entityName]];
+            
+            req.sortDescriptors = @[[NSSortDescriptor
+                                     sortDescriptorWithKey:MXWBookAttributes.title
+                                     ascending:YES
+                                     selector:@selector(caseInsensitiveCompare:)]];
+            req.fetchBatchSize = 20;
+            
+            req.predicate = [NSPredicate predicateWithFormat:@"ANY tags == %@",aTag];
+            
+            // FetchedResultsController
+            NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
+                                              initWithFetchRequest:req
+                                              managedObjectContext:self.stack.context
+                                              sectionNameKeyPath:nil
+                                              cacheName:nil];
+            
+            NSMutableDictionary * dTag = [NSMutableDictionary
+                                                dictionaryWithDictionary:@{ TITLE_SECTION :  aTag.tagName,
+                                                                            SECTION_FRC   :  @"YES",
+                                                                            FETCH_RC      :  fc}];
+            [arr addObject:dTag];
+        } else if ([obj isKindOfClass:[MXWAuthor class]]) {
+            
+            MXWAuthor * anAuthor = obj;
+            
+            NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWBook entityName]];
+            
+            req.sortDescriptors = @[[NSSortDescriptor
+                                     sortDescriptorWithKey:MXWBookAttributes.title
+                                     ascending:YES
+                                     selector:@selector(caseInsensitiveCompare:)]];
+            req.fetchBatchSize = 20;
+            
+            req.predicate = [NSPredicate predicateWithFormat:@"ANY authors == %@",anAuthor];
+            
+            // FetchedResultsController
+            NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
+                                              initWithFetchRequest:req
+                                              managedObjectContext:self.stack.context
+                                              sectionNameKeyPath:nil
+                                              cacheName:nil];
+            
+            NSMutableDictionary * dAuthor = [NSMutableDictionary
+                                          dictionaryWithDictionary:@{ TITLE_SECTION :  anAuthor.authorName,
+                                                                      SECTION_FRC   :  @"YES",
+                                                                      FETCH_RC      :  fc}];
+            [arr addObject:dAuthor];
+            
+        }
+        
+        
+    }
+    
+    
+    return arr;
+}
+
+- (NSMutableDictionary*) fetchForTitles {
     
     if (!self.stack) {
         [self beginStack];
@@ -51,10 +127,15 @@
                                       sectionNameKeyPath:nil
                                       cacheName:nil];
     
-    return fc;
+    NSMutableDictionary * dTitles = [NSMutableDictionary
+                                     dictionaryWithDictionary:@{ TITLE_SECTION :  @"Titles",
+                                                                 SECTION_FRC   :  @"YES",
+                                                                 FETCH_RC      :  fc}];
+    
+    return dTitles;
 }
 
-- (NSFetchedResultsController*) fetchForFavorites {
+- (NSMutableDictionary *) fetchForFavorites {
     
     if (!self.stack) {
         [self beginStack];
@@ -68,7 +149,7 @@
                              selector:@selector(caseInsensitiveCompare:)]];
     req.fetchBatchSize = 20;
     
-    req.predicate = [NSPredicate predicateWithFormat:@"favorites = %@",[NSNumber numberWithBool:NO]];
+    req.predicate = [NSPredicate predicateWithFormat:@"favorites == %@",[NSNumber numberWithBool:YES]];
     
     // FetchedResultsController
     NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
@@ -77,43 +158,70 @@
                                       sectionNameKeyPath:nil
                                       cacheName:nil];
     
-    return fc;
+    NSMutableDictionary * dFavorites = [NSMutableDictionary
+                                        dictionaryWithDictionary:@{TITLE_SECTION : @"Favorites",
+                                                                   SECTION_FRC : @"YES",
+                                                                   FETCH_RC : fc}];
+    
+    return dFavorites;
 }
 
 
-- (NSFetchedResultsController*) fetchForTags {
+- (NSMutableArray*) fetchForTags {
     
     if (!self.stack) {
         [self beginStack];
     }
     
-    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWBook entityName]];
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWTag entityName]];
     
     //NSString * sortVal = [NSString stringWithFormat:@"%@.@%@",MXWTagRelationships.books,MXWBookAttributes.title];
     
     //sortedArrayUsingDescriptors
     //caseInsensitiveCompare
-    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:MXWBookAttributes.title
-                                                          ascending:YES
-                                                           selector:@selector(caseInsensitiveCompare:)],
-                            [NSSortDescriptor sortDescriptorWithKey:[MXWBookRelationships.tags stringByAppendingString:@".tagName"]
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:MXWTagAttributes.tagName
                                                           ascending:YES
                                                            selector:@selector(caseInsensitiveCompare:)]];
     req.fetchBatchSize = 20;
-    
-    //req.predicate = [NSPredicate predicateWithFormat:<#(NSString *), ...#>];
     
     // FetchedResultsController
     NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
                                       initWithFetchRequest:req
                                       managedObjectContext:self.stack.context
-                                      sectionNameKeyPath:[MXWBookRelationships.tags stringByAppendingString:@".tagName"]
-                                      cacheName:nil];//[MXWBookRelationships.tags stringByAppendingString:@".tagName"]];
+                                      sectionNameKeyPath:nil
+                                      cacheName:nil];
     
-    return fc;
+    return [self fetchBooksfromFetchOfN2NSections:fc];
 }
 
-- (NSFetchedResultsController*) fetchForGenders {
+- (NSMutableArray*) fetchForAuthors {
+    
+    if (!self.stack) {
+        [self beginStack];
+    }
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWAuthor entityName]];
+    
+    //NSString * sortVal = [NSString stringWithFormat:@"%@.@%@",MXWTagRelationships.books,MXWBookAttributes.title];
+    
+    //sortedArrayUsingDescriptors
+    //caseInsensitiveCompare
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:MXWAuthorAttributes.authorName
+                                                          ascending:YES
+                                                           selector:@selector(caseInsensitiveCompare:)]];
+    req.fetchBatchSize = 20;
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
+                                      initWithFetchRequest:req
+                                      managedObjectContext:self.stack.context
+                                      sectionNameKeyPath:nil
+                                      cacheName:nil];
+    
+    return [self fetchBooksfromFetchOfN2NSections:fc];
+}
+
+- (NSMutableDictionary*) fetchForGenders {
     
     if (!self.stack) {
         [self beginStack];
@@ -142,7 +250,12 @@
                                       sectionNameKeyPath:sortVal
                                       cacheName:nil];//[MXWBookRelationships.tags stringByAppendingString:@".tagName"]];
     
-    return fc;
+    NSMutableDictionary * dGenders = [NSMutableDictionary
+                                      dictionaryWithDictionary:@{TITLE_SECTION : @"Genders",
+                                                                 SECTION_FRC : @"YES",
+                                                                 FETCH_RC : fc}];
+    
+    return dGenders;
 }
 
 

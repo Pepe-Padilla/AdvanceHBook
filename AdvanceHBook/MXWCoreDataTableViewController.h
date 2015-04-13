@@ -10,10 +10,7 @@
 @import CoreData;
 @import UIKit;
 
-#define TITLE_SECTION @"TITLE_SECTION"
-#define SECTION_FRC @"SECTION_FRC"
-#define FETCH_RC @"FETCH_RC"
-#define NOFRC_COUNT @"NOFRC_COUNT"
+
 
 @interface MXWCoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
