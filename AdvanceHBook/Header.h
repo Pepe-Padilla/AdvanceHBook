@@ -8,7 +8,7 @@
 
 #define MODEL_VERSION 1
 #define REPO_URL @"http://peps.webuda.com/books_readable.json"
-#define FORCE_RECHARGE NO
+#define FORCE_RECHARGE YES
 
 // dictionary keys form MXWCoreDataTableViewController protocol
 #define TITLE_SECTION @"TITLE_SECTION"

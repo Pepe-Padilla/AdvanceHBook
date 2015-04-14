@@ -69,7 +69,7 @@
     self.maTags = [self.library fetchForTags];
     self.maAuthors = [self.library fetchForAuthors];
     
-    NSMutableArray * aSections = [NSMutableArray arrayWithArray:@[self.mdFavorites]];
+    NSMutableArray * aSections = [NSMutableArray arrayWithArray:@[self.mdHeader, self.mdFavorites]];
     
     [aSections addObjectsFromArray:self.maTags];
     

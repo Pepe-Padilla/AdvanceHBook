@@ -10,6 +10,17 @@
 @class MXWBook;
 #import "MXWLibraryViewController.h"
 
+
+/*@protocol MXWBookViewControllerDelegate <NSObject>
+
+@optional
+-(void) libraryTableViewController: (MXWBookViewController *) lVC
+                     didChangeAFavorite: (MXWBook *) aBook;
+
+
+@end */
+
+
 @interface MXWBookViewController : UIViewController <UISplitViewControllerDelegate,MXWLibraryViewControllerDelegate>
 
 @property (strong,nonatomic) MXWBook * book;
