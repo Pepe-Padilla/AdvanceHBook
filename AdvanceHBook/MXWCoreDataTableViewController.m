@@ -132,6 +132,9 @@
 }
 
 -(id) fetchedObjectAtIndexPath:(NSIndexPath *)indexPath{
+    
+    //NSLog(@"indexpagth section-row at fetchObjectAtIndexPath: %d - %d",indexPath.section, indexPath.row);
+    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
     

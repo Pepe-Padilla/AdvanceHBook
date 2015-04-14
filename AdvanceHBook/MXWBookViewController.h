@@ -8,8 +8,9 @@
 
 @import UIKit;
 @class MXWBook;
+#import "MXWLibraryViewController.h"
 
-@interface MXWBookViewController : UIViewController
+@interface MXWBookViewController : UIViewController <UISplitViewControllerDelegate,MXWLibraryViewControllerDelegate>
 
 @property (strong,nonatomic) MXWBook * book;
 

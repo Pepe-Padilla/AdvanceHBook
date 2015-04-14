@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MXWLibraryMng.h"
 #import "MXWLibraryViewController.h"
+#import "MXWBookViewController.h"
 #import "Header.h"
 
 @interface AppDelegate ()
@@ -21,21 +22,40 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    MXWLibraryViewController *nVC = [[MXWLibraryViewController alloc]
+    MXWLibraryViewController *lVC = [[MXWLibraryViewController alloc]
                                      initWithStyle:UITableViewStylePlain];
-    [nVC manageStart];
+    [lVC manageStart];
+    
+    
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+    
+    MXWBook * aBook = [lVC fetchedObjectAtIndexPath:indexPath];
+    
+    MXWBookViewController * bVC = [[MXWBookViewController alloc] initWithModel:aBook];
+    
+    
+    
+    // Creo el combinador
+    UINavigationController * lNav = [UINavigationController new];
+    [lNav pushViewController:lVC animated:NO];
+    
+    UINavigationController * bNav = [UINavigationController new];
+    [bNav pushViewController:bVC animated:NO];
+    
+    UISplitViewController * spVC = [UISplitViewController new];
+    spVC.viewControllers = @[lNav,bNav];
+    
+    spVC.delegate=bVC;
+    lVC.delegate=bVC;
     
     
     self.window = [[UIWindow alloc] initWithFrame:
                    [[UIScreen mainScreen] bounds]];
     
-    UINavigationController *nav = [UINavigationController new];
-    
-    [nav pushViewController:nVC animated:NO];
-    
-    self.window.rootViewController = nav;
+    self.window.rootViewController = spVC;
     
     [self.window makeKeyAndVisible];
+    
     
     //[self autoSave];
     

@@ -7,8 +7,8 @@
 //
 
 #import "MXWLibraryViewController.h"
+#import "MXWBookViewController.h"
 #import "MXWTag.h"
-#import "MXWBook.h"
 #import "MXWAuthor.h"
 #import "MXWLibraryMng.h"
 #import "Header.h"
@@ -40,6 +40,8 @@
         _mdGenders = [[NSMutableDictionary alloc] init];
         _maTags = [[NSMutableArray alloc] init];
         _maAuthors = [[NSMutableArray alloc] init];
+        
+        self.title = @"Library";
         
     }
     
@@ -130,5 +132,26 @@
     }
     
 }
+
+
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Averiguar cual es la libreta
+    //NSLog(@"indexpagth section-row: %d - %d",indexPath.section, indexPath.row);
+    
+    id obj = [self fetchedObjectAtIndexPath:indexPath];
+    
+    MXWBook *b = nil;
+    if ([obj isKindOfClass:[MXWBook class]]) {
+        b=obj;
+        
+        if ([self.delegate respondsToSelector:@selector(libraryTableViewController:didSelectBook:)]) {
+            [self.delegate libraryTableViewController:self
+                                        didSelectBook:b];
+        }
+        //MXWBookViewController * bVC = [[MXWBookViewController alloc] initWithModel:b];
+        
+    }
+}
+
 
 @end
