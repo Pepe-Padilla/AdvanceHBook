@@ -12,8 +12,10 @@
 
 
 @interface MXWCoreDataTableViewController()
+
 @property (nonatomic) BOOL beganUpdates;
 @property (strong, nonatomic) NSMutableArray * aTitle;
+@property (strong, nonatomic) NSMutableArray * arrayTable;
 
 @end
 
@@ -98,6 +100,28 @@
     }];
     [self.tableView reloadData];
 }
+
+- (void)setFetchedArray:(NSMutableArray *)newAfrc {
+    
+    [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        NSMutableDictionary * dictionary = obj;
+        
+        NSString * sectionRFC = [dictionary objectForKey:SECTION_FRC];
+        
+        
+        if([sectionRFC isEqualToString:@"YES"]){
+            NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
+            if(fetchedResultsController){
+                fetchedResultsController.delegate = nil;
+            }
+        }
+    }];
+    
+    self.arrayTable = newAfrc;
+    [self performFetch];
+
+}
+
 
 - (void)setFetchedResultsController:(NSFetchedResultsController *)newfrc {
     [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {

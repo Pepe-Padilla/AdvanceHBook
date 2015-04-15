@@ -15,7 +15,7 @@
 @interface MXWCoreDataTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
 
-@property (strong, nonatomic) NSMutableArray * arrayTable;
+
 
 
 // The controller (this class fetches nothing if this is not set).
@@ -55,4 +55,7 @@
               style: (UITableViewStyle) aStyle;
 
 -(id) fetchedObjectAtIndexPath:(NSIndexPath *)indexPath;
+
+- (void)setFetchedArray:(NSMutableArray *)newAfrc;
+
 @end

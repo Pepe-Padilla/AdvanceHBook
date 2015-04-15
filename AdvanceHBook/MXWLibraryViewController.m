@@ -73,8 +73,7 @@
     
     [aSections addObjectsFromArray:self.maTags];
     
-    self.arrayTable = aSections;
-    [self performFetch];
+    [self setFetchedArray:aSections];
     [self.library autoSave];
 }
 
