@@ -9,6 +9,7 @@
 @import UIKit;
 @class MXWBook;
 #import "MXWLibraryViewController.h"
+#import "ReaderViewController.h"
 
 
 /*@protocol MXWBookViewControllerDelegate <NSObject>
@@ -21,7 +22,7 @@
 @end */
 
 
-@interface MXWBookViewController : UIViewController <UISplitViewControllerDelegate,MXWLibraryViewControllerDelegate>
+@interface MXWBookViewController : UIViewController <UISplitViewControllerDelegate,MXWLibraryViewControllerDelegate, ReaderViewControllerDelegate>
 
 @property (strong,nonatomic) MXWBook * book;
 

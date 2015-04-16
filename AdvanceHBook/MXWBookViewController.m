@@ -13,6 +13,7 @@
 #import "MXWGender.h"
 #import "MXWNote.h"
 #import "MXWNote.h"
+#import "ReaderDocument.h"
 
 @interface MXWBookViewController ()
 
@@ -78,7 +79,51 @@
             
         }];
     } else {
-        // abri el PDF VC
+        
+        NSData * file = self.book.pdfData;
+        
+        NSFileManager *fm = [NSFileManager defaultManager];
+        
+        NSArray * fmURL = [fm URLsForDirectory: NSCachesDirectory
+                                     inDomains: NSUserDomainMask];
+        
+        NSString * element = @"AdvHBook.pdf";
+        
+        NSURL * urlF = [fmURL lastObject];
+        
+        urlF = [urlF URLByAppendingPathComponent:element];
+        
+        [fm createFileAtPath:[urlF path]
+                    contents:file
+                  attributes:nil];
+        
+
+        
+        //NSString * aStr = nil;
+        
+        ReaderDocument * document = [ReaderDocument  withDocumentFilePath:[urlF path]
+                                                                password:nil];
+        
+        if (document != nil)
+        {
+            ReaderViewController *readerViewController = [[ReaderViewController alloc]
+                                                          initWithReaderDocument:document];
+            readerViewController.delegate = self;
+            
+            readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            readerViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+            
+            readerViewController.title = self.book.title;
+            
+            [self presentViewController:readerViewController animated:YES completion:^{
+                
+            }];
+            
+            //[self.navigationController pushViewController:readerViewController
+            //                                     animated:YES];
+            
+        }
+        
     }
 }
 
@@ -174,6 +219,14 @@
     }
     
     
+}
+
+#pragma mark - ReaderViewControllerDelegate
+- (void)dismissReaderViewController:(ReaderViewController *)viewController {
+    //[viewController.th]
+    [viewController dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 @end
