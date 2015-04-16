@@ -351,4 +351,14 @@
 	return self;
 }
 
+# pragma mark - MXW-JPR
+- (void) changeInitialTitle: (NSString*) aTitle {
+    _fileName = aTitle;
+}
+
+- (void) changeInitialPageNumber: (NSNumber*) page {
+    _pageNumber = page;
+}
+
+
 @end

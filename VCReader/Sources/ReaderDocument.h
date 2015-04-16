@@ -52,4 +52,9 @@
 
 - (void)updateDocumentProperties;
 
+# pragma mark - MXW-JPR
+- (void) changeInitialTitle: (NSString*) aTitle;
+- (void) changeInitialPageNumber: (NSNumber*) page;
+
+
 @end

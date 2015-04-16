@@ -88,7 +88,7 @@
     n.favorites = [NSNumber numberWithBool:NO];
     n.finished = [NSNumber numberWithBool:NO];
     //lastDayAcces
-    n.lastPage = 0;
+    n.lastPage = [NSNumber numberWithInt:1];
     n.extURLPDF = [aExtURLPDF absoluteString];
     n.extURLPortraid = [aExtURLPortraid absoluteString];
     

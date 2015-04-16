@@ -17,6 +17,9 @@
 
 @interface MXWBookViewController ()
 
+@property (strong, nonatomic) ReaderDocument * document;
+@property (strong, nonatomic) ReaderViewController *readerViewController;
+
 @end
 
 @implementation MXWBookViewController
@@ -25,6 +28,7 @@
     
     if (self = [super initWithNibName:nil bundle:nil]) {
         _book = aBook;
+        _document = nil;
         self.title = aBook.title;
     }
     
@@ -39,7 +43,85 @@
     [self manageBook];
 }
 
+- (void) manageBook {
+    self.imgPrortraid.image = self.book.portraidImg;
+    
+    if ([self.book.finished isEqual:[NSNumber numberWithBool:YES]]) {
+        
+        self.imgFinished.image = [UIImage imageNamed:@"TheEnd.jpg"];
+        
+    } else {
+        
+        self.imgFinished.image = nil;
+        
+    }
+    
+    if ([self.book.favorites isEqual:[NSNumber numberWithBool:YES]]) {
+        
+        UIImage * btnImage = [UIImage imageNamed:@"starUP.png"];
+        [self.buttonFavorite setImage:btnImage
+                             forState:UIControlStateNormal];
+        
+        
+    } else {
+        
+        UIImage * btnImage = [UIImage imageNamed:@"starDOWN.png"];
+        [self.buttonFavorite setImage:btnImage
+                             forState:UIControlStateNormal];
+        
+    }
+    
+    if (self.book.pdfData == nil) {
+        UIImage * btnImage = [UIImage imageNamed:@"pdfdownload.png"];
+        [self.buttonPDF setImage:btnImage
+                        forState:UIControlStateNormal];
+    } else {
+        UIImage * btnImage = [UIImage imageNamed:@"pdf.gif"];
+        [self.buttonPDF setImage:btnImage
+                        forState:UIControlStateNormal];
+    }
+    
+    if (self.book.lastDayAcces) {
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateStyle:NSDateFormatterFullStyle];
+        //NSString *dateString = [dateFormatter stringFromDate:[NSDate date]];
+        
+        self.lblLastDayAcces.text = [[dateFormatter stringFromDate:self.book.lastDayAcces ]
+        //                              descriptionWithLocale: [NSLocale autoupdatingCurrentLocale]]]
+                                     stringByAppendingString:[NSString stringWithFormat:@"\n(page: %@)",self.book.lastPage]];
+    } else self.lblLastDayAcces.text = @"";
+    
+    self.lblTitle.text = self.book.title;
+    
+    NSArray * tagNames =[self.book.tags allObjects];
+    NSString * theTags = @"";
+    for (MXWTag * aTag in tagNames) {
+        if (![theTags isEqualToString:@""])
+            theTags = [theTags stringByAppendingString:@", "];
+        
+        theTags = [theTags stringByAppendingString:aTag.tagName];
+    }
+    self.lblTags.text = [@"Tags: " stringByAppendingString:theTags];
+    
+    NSArray * authorNames =[self.book.authors allObjects];
+    NSString * theAuthors = @"";
+    for (MXWAuthor * aAuthor in authorNames) {
+        if (![theAuthors isEqualToString:@""])
+            theAuthors = [theAuthors stringByAppendingString:@", "];
+        
+        theAuthors = [theAuthors stringByAppendingString:aAuthor.authorName];
+    }
+    self.lblAuthors.text = [@"Author(s): " stringByAppendingString:theAuthors];
+    
+    //self.lblGender.text = self.book.genders.genderName;
+    
+    //self.cvNotes = //UICollectionView
+    
+    self.title = self.book.title;
+}
 
+#pragma mark - Actions
 - (IBAction)actionFavorite:(id)sender {
     
     if ([self.book.favorites isEqual:[NSNumber numberWithBool:YES]]) {
@@ -101,99 +183,48 @@
         
         //NSString * aStr = nil;
         
-        ReaderDocument * document = [ReaderDocument  withDocumentFilePath:[urlF path]
+        self.document = [ReaderDocument  withDocumentFilePath:[urlF path]
                                                                 password:nil];
         
-        if (document != nil)
+        if (self.document != nil)
         {
-            ReaderViewController *readerViewController = [[ReaderViewController alloc]
-                                                          initWithReaderDocument:document];
-            readerViewController.delegate = self;
             
-            readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            readerViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+            [self.document changeInitialTitle:self.book.title];
             
-            readerViewController.title = self.book.title;
+            [self.document changeInitialPageNumber:self.book.lastPage];
             
-            [self presentViewController:readerViewController animated:YES completion:^{
+            self.readerViewController = nil;
+            self.readerViewController = [[ReaderViewController alloc]
+                                                          initWithReaderDocument:self.document];
+            self.readerViewController.delegate = self;
+            
+            self.readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            self.readerViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+            
+            
+            //[self presentViewController:readerViewController animated:YES completion:^{
                 
-            }];
+            //}];
             
-            //[self.navigationController pushViewController:readerViewController
-            //                                     animated:YES];
+            self.readerViewController.title = self.book.title;
+            self.readerViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+            
+            UIBarButtonItem *dismis = [[UIBarButtonItem alloc]
+                                    initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                    target:self action:@selector(dismissReaderViewController:)];
+            
+            self.readerViewController.navigationItem.rightBarButtonItem = dismis;
+
+            
+            [self.navigationController pushViewController:self.readerViewController
+                                                 animated:YES];
             
         }
         
     }
 }
 
-- (void) manageBook {
-    self.imgPrortraid.image = self.book.portraidImg;
-    
-    if ([self.book.finished isEqual:[NSNumber numberWithBool:NO]]) {
-        
-        self.imgFinished.image = [UIImage imageNamed:@"TheEnd.jpg"];
-        
-    }
-    
-    if ([self.book.favorites isEqual:[NSNumber numberWithBool:YES]]) {
-        
-        UIImage * btnImage = [UIImage imageNamed:@"starUP.png"];
-        [self.buttonFavorite setImage:btnImage
-                             forState:UIControlStateNormal];
-        
-        
-    } else {
-        
-        UIImage * btnImage = [UIImage imageNamed:@"starDOWN.png"];
-        [self.buttonFavorite setImage:btnImage
-                             forState:UIControlStateNormal];
-        
-    }
-    
-    if (self.book.pdfData == nil) {
-        UIImage * btnImage = [UIImage imageNamed:@"pdfdownload.png"];
-        [self.buttonPDF setImage:btnImage
-                             forState:UIControlStateNormal];
-    } else {
-        UIImage * btnImage = [UIImage imageNamed:@"pdf.gif"];
-        [self.buttonPDF setImage:btnImage
-                             forState:UIControlStateNormal];
-    }
-    
-    if (self.book.lastDayAcces)
-        self.lblLastDayAcces.text = [[self.book.lastDayAcces
-                                     descriptionWithLocale:[NSLocale autoupdatingCurrentLocale]]
-                                     stringByAppendingString:[NSString stringWithFormat:@"(%@)",self.book.lastPage]];
-    
-    self.lblTitle.text = self.book.title;
-    
-    NSArray * tagNames =[self.book.tags allObjects];
-    NSString * theTags = @"";
-    for (MXWTag * aTag in tagNames) {
-        if (![theTags isEqualToString:@""])
-            theTags = [theTags stringByAppendingString:@", "];
-        
-        theTags = [theTags stringByAppendingString:aTag.tagName];
-    }
-    self.lblTags.text = [@"Tags: " stringByAppendingString:theTags];
-    
-    NSArray * authorNames =[self.book.authors allObjects];
-    NSString * theAuthors = @"";
-    for (MXWAuthor * aAuthor in authorNames) {
-        if (![theAuthors isEqualToString:@""])
-            theAuthors = [theAuthors stringByAppendingString:@", "];
-        
-        theAuthors = [theAuthors stringByAppendingString:aAuthor.authorName];
-    }
-    self.lblAuthors.text = [@"Author(s): " stringByAppendingString:theAuthors];
-    
-    //self.lblGender.text = self.book.genders.genderName;
-    
-    //self.cvNotes = //UICollectionView
-    
-    self.title = self.book.title;
-}
+
 
 #pragma mark - MXWLibraryViewControllerDelegate
 -(void) libraryTableViewController: (MXWLibraryViewController *) lVC
@@ -223,10 +254,23 @@
 
 #pragma mark - ReaderViewControllerDelegate
 - (void)dismissReaderViewController:(ReaderViewController *)viewController {
-    //[viewController.th]
-    [viewController dismissViewControllerAnimated:YES completion:^{
-        
+    
+    self.document = [self.readerViewController getReaderDocument];
+    
+    self.book.lastPage = self.document.pageNumber;
+    
+    self.book.lastDayAcces = [NSDate date];
+    
+    if ([self.document.pageNumber isEqualToNumber:self.document.pageCount]) {
+        self.book.finished = [NSNumber numberWithBool:YES];
+    }
+    
+    [self.readerViewController dismissViewControllerAnimated:YES completion:^{
+    
     }];
+    
+    [self.navigationController popToViewController:self
+                                          animated:YES];
 }
 
 @end

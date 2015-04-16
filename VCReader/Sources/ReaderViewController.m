@@ -899,4 +899,9 @@
 	if (userInterfaceIdiom == UIUserInterfaceIdiomPad) if (printInteraction != nil) [printInteraction dismissAnimated:NO];
 }
 
+#pragma mark - MXW-JPR convinience changes
+- (ReaderDocument*) getReaderDocument{
+    return document;
+}
+
 @end
