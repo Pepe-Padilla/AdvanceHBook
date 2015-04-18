@@ -232,15 +232,41 @@
             self.readerViewController.title = self.book.title;
             self.readerViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
             
+            UIView * container = [[UIView alloc] init];
+            
             UIBarButtonItem *dismis = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                    target:self action:@selector(dismissReaderViewController:)];
+                                       initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                                       target:self action:@selector(dismissReaderViewController:)];
+            
+            UIBarButtonItem *addNote = [[UIBarButtonItem alloc] initWithTitle:@"Add Note"
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(addNote:)];
+            
+            //UIButton *dismis = [[UIButton alloc] init];
+            //[dismis set];
+                              //         initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+                              //         target:self action:@selector(dismissReaderViewController:)];
+            
+            //UIButton *addNote = [[UIButton alloc] initWithTitle:@"Add Note"
+            //                                                            style:UIBarButtonItemStylePlain
+            //                                                           target:self
+            //                                                           action:@selector(addNote:)];
+            
+            [container addSubview:addNote];
+            [container addSubview:dismis];
             
             self.readerViewController.navigationItem.rightBarButtonItem = dismis;
 
             
             [self.navigationController pushViewController:self.readerViewController
                                                  animated:YES];
+            
+            
+            if ([self.delegate respondsToSelector:@selector(bookViewController:didViewPDF:)]) {
+                [self.delegate bookViewController:self
+                                      didClosePDF:self.book];
+            }
             
         }
         

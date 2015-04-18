@@ -8,21 +8,34 @@
 
 @import UIKit;
 @class MXWBook;
+@class MXWBookViewController;
 #import "MXWLibraryViewController.h"
 #import "ReaderViewController.h"
 
 
-/*@protocol MXWBookViewControllerDelegate <NSObject>
+@protocol MXWBookViewControllerDelegate <NSObject>
+
+@required
+-(void) bookViewController: (MXWBookViewController *) lVC
+                didViewPDF: (MXWBook *) aBook;
+
+-(void) bookViewController: (MXWBookViewController *) lVC
+               didClosePDF: (MXWBook *) aBook;
 
 @optional
--(void) libraryTableViewController: (MXWBookViewController *) lVC
-                     didChangeAFavorite: (MXWBook *) aBook;
+-(void) bookViewController: (MXWBookViewController *) lVC
+             didAddNotePDF: (MXWBook *) aBook
+                   forPage: (NSNumber*) page;
 
 
-@end */
+
+
+@end
 
 
 @interface MXWBookViewController : UIViewController <UISplitViewControllerDelegate,MXWLibraryViewControllerDelegate, ReaderViewControllerDelegate>
+
+@property (weak, nonatomic) id<MXWBookViewControllerDelegate> delegate;
 
 @property (strong,nonatomic) MXWBook * book;
 

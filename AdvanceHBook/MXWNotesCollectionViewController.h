@@ -10,7 +10,10 @@
 @import CoreData;
 #import "AGTCoreDataCollectionViewController.h"
 
+
+
 @interface MXWNotesCollectionViewController : AGTCoreDataCollectionViewController
+
 
 
 @end
