@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		B152F5DA1ADA65910019FFFB /* MXWLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */; };
 		B152F5DD1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */; };
+		B1740D381AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1740D371AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib */; };
+		B1740D3A1AE2B2AB000ECB0F /* post-it-198796-m.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1740D391AE2B2AB000ECB0F /* post-it-198796-m.jpg */; };
+		B1740D401AE2B663000ECB0F /* MXWNoteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1740D3F1AE2B663000ECB0F /* MXWNoteCollectionViewCell.m */; };
+		B1740D461AE2B926000ECB0F /* AGTCoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1740D451AE2B926000ECB0F /* AGTCoreDataCollectionViewController.m */; };
 		B17D16FA1ADED9CB00DFE4A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17D16F91ADED9CB00DFE4A2 /* QuartzCore.framework */; };
 		B17D16FC1ADED9D700DFE4A2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17D16FB1ADED9D700DFE4A2 /* ImageIO.framework */; };
 		B17D16FE1ADED9E300DFE4A2 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17D16FD1ADED9E300DFE4A2 /* MessageUI.framework */; };
@@ -82,6 +86,7 @@
 		B1897C181AD98A46008D743C /* MXWTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C141AD98A46008D743C /* MXWTag.m */; };
 		B1897C1B1AD99724008D743C /* Book_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B1897C1A1AD99724008D743C /* Book_placeholder.png */; };
 		B1897C1F1AD9C245008D743C /* MXWLibraryMng.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C1E1AD9C245008D743C /* MXWLibraryMng.m */; };
+		B1ABB2061AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1ABB2051AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m */; };
 		B1B979BF1ADC69CC00A3D5D8 /* MXWBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B979BD1ADC69CC00A3D5D8 /* MXWBookViewController.m */; };
 		B1B979C01ADC69CC00A3D5D8 /* MXWBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B979BE1ADC69CC00A3D5D8 /* MXWBookViewController.xib */; };
 		B1B979C21ADC738800A3D5D8 /* TheEnd.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C11ADC738800A3D5D8 /* TheEnd.jpg */; };
@@ -107,6 +112,12 @@
 		B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWLibraryViewController.m; sourceTree = "<group>"; };
 		B152F5DB1ADAA37D0019FFFB /* MXWCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWCoreDataTableViewController.h; sourceTree = "<group>"; };
 		B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWCoreDataTableViewController.m; sourceTree = "<group>"; };
+		B1740D371AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXWNoteCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1740D391AE2B2AB000ECB0F /* post-it-198796-m.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "post-it-198796-m.jpg"; path = "../../../post-it-198796-m.jpg"; sourceTree = "<group>"; };
+		B1740D3E1AE2B663000ECB0F /* MXWNoteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWNoteCollectionViewCell.h; sourceTree = "<group>"; };
+		B1740D3F1AE2B663000ECB0F /* MXWNoteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWNoteCollectionViewCell.m; sourceTree = "<group>"; };
+		B1740D441AE2B926000ECB0F /* AGTCoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataCollectionViewController.h; sourceTree = "<group>"; };
+		B1740D451AE2B926000ECB0F /* AGTCoreDataCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGTCoreDataCollectionViewController.m; sourceTree = "<group>"; };
 		B17D16F91ADED9CB00DFE4A2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B17D16FB1ADED9D700DFE4A2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		B17D16FD1ADED9E300DFE4A2 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -222,6 +233,8 @@
 		B1897C1A1AD99724008D743C /* Book_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Book_placeholder.png; sourceTree = "<group>"; };
 		B1897C1D1AD9C245008D743C /* MXWLibraryMng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWLibraryMng.h; sourceTree = "<group>"; };
 		B1897C1E1AD9C245008D743C /* MXWLibraryMng.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWLibraryMng.m; sourceTree = "<group>"; };
+		B1ABB2041AE0595C00AA7CA0 /* MXWNotesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWNotesCollectionViewController.h; sourceTree = "<group>"; };
+		B1ABB2051AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWNotesCollectionViewController.m; sourceTree = "<group>"; };
 		B1B979BC1ADC69CC00A3D5D8 /* MXWBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWBookViewController.h; sourceTree = "<group>"; };
 		B1B979BD1ADC69CC00A3D5D8 /* MXWBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWBookViewController.m; sourceTree = "<group>"; };
 		B1B979BE1ADC69CC00A3D5D8 /* MXWBookViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXWBookViewController.xib; sourceTree = "<group>"; };
@@ -451,11 +464,18 @@
 			children = (
 				B152F5DB1ADAA37D0019FFFB /* MXWCoreDataTableViewController.h */,
 				B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */,
+				B1740D441AE2B926000ECB0F /* AGTCoreDataCollectionViewController.h */,
+				B1740D451AE2B926000ECB0F /* AGTCoreDataCollectionViewController.m */,
 				B152F5D81ADA65910019FFFB /* MXWLibraryViewController.h */,
 				B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */,
 				B1B979BC1ADC69CC00A3D5D8 /* MXWBookViewController.h */,
 				B1B979BD1ADC69CC00A3D5D8 /* MXWBookViewController.m */,
 				B1B979BE1ADC69CC00A3D5D8 /* MXWBookViewController.xib */,
+				B1ABB2041AE0595C00AA7CA0 /* MXWNotesCollectionViewController.h */,
+				B1ABB2051AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m */,
+				B1740D3E1AE2B663000ECB0F /* MXWNoteCollectionViewCell.h */,
+				B1740D3F1AE2B663000ECB0F /* MXWNoteCollectionViewCell.m */,
+				B1740D371AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -492,6 +512,7 @@
 		B1897C1C1AD99729008D743C /* img */ = {
 			isa = PBXGroup;
 			children = (
+				B1740D391AE2B2AB000ECB0F /* post-it-198796-m.jpg */,
 				B1B979C71ADC7C5600A3D5D8 /* pdf.gif */,
 				B1B979C81ADC7C5600A3D5D8 /* pdfdownload.png */,
 				B1B979C91ADC7C5600A3D5D8 /* pdfdownloading.gif */,
@@ -596,10 +617,12 @@
 				B17D17671ADEDB2600DFE4A2 /* AppIcon-120.png in Resources */,
 				B17D17721ADEDB2600DFE4A2 /* Reader-Email.png in Resources */,
 				B17D177D1ADEDB2600DFE4A2 /* Reader-Thumbs@2x.png in Resources */,
+				B1740D381AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib in Resources */,
 				B17D177C1ADEDB2600DFE4A2 /* Reader-Thumbs.png in Resources */,
 				B17D176A1ADEDB2600DFE4A2 /* AppIcon-180.png in Resources */,
 				B17D176C1ADEDB2600DFE4A2 /* Default-667h@2x.png in Resources */,
 				B1B979CB1ADC7C5600A3D5D8 /* pdfdownload.png in Resources */,
+				B1740D3A1AE2B2AB000ECB0F /* post-it-198796-m.jpg in Resources */,
 				B17D17641ADEDB2600DFE4A2 /* AppIcon-072.png in Resources */,
 				B17D17791ADEDB2600DFE4A2 /* Reader-Mark-Y@2x.png in Resources */,
 				B17D177A1ADEDB2600DFE4A2 /* Reader-Print.png in Resources */,
@@ -658,6 +681,7 @@
 				B17D173F1ADEDACE00DFE4A2 /* ReaderThumbRender.m in Sources */,
 				B17D17411ADEDACE00DFE4A2 /* ReaderThumbsView.m in Sources */,
 				B17D17071ADEDABA00DFE4A2 /* ReaderAppDelegate.m in Sources */,
+				B1740D461AE2B926000ECB0F /* AGTCoreDataCollectionViewController.m in Sources */,
 				B1897C151AD98A46008D743C /* MXWBook.m in Sources */,
 				B17D173B1ADEDACE00DFE4A2 /* ReaderMainToolbar.m in Sources */,
 				B1897C051AD989FD008D743C /* _MXWBook.m in Sources */,
@@ -665,6 +689,7 @@
 				B1897BED1AD977BD008D743C /* BookModel.xcdatamodeld in Sources */,
 				B1897C1F1AD9C245008D743C /* MXWLibraryMng.m in Sources */,
 				B17D17341ADEDACE00DFE4A2 /* ReaderConstants.m in Sources */,
+				B1ABB2061AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m in Sources */,
 				B1897C0C1AD98A2B008D743C /* MXWAuthor.m in Sources */,
 				B17D173C1ADEDACE00DFE4A2 /* ReaderThumbCache.m in Sources */,
 				B1897C081AD989FD008D743C /* _MXWTag.m in Sources */,
@@ -676,6 +701,7 @@
 				B152F5DD1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m in Sources */,
 				B1897C161AD98A46008D743C /* MXWGender.m in Sources */,
 				B1897C181AD98A46008D743C /* MXWTag.m in Sources */,
+				B1740D401AE2B663000ECB0F /* MXWNoteCollectionViewCell.m in Sources */,
 				B1897BF91AD986D8008D743C /* MXWBaseManagedObject.m in Sources */,
 				B1897BC81AD9529E008D743C /* main.m in Sources */,
 				B1897C071AD989FD008D743C /* _MXWNote.m in Sources */,
@@ -803,6 +829,7 @@
 				INFOPLIST_FILE = AdvanceHBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -814,6 +841,7 @@
 				INFOPLIST_FILE = AdvanceHBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};

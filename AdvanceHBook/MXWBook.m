@@ -2,6 +2,8 @@
 #import "MXWTag.h"
 #import "MXWAuthor.h"
 #import "MXWGender.h"
+#import "MXWNote.h"
+@import CoreData;
 
 @interface MXWBook ()
 
@@ -10,6 +12,30 @@
 @end
 
 @implementation MXWBook
+
+- (NSFetchedResultsController*) fetchForNotes {
+    
+    NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWNote entityName]];
+    
+    //sortedArrayUsingDescriptors
+    //caseInsensitiveCompare
+    req.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:MXWNoteAttributes.page
+                                                          ascending:YES],
+                            [NSSortDescriptor sortDescriptorWithKey:MXWNoteAttributes.creationDate
+                                                          ascending:YES]];
+    req.fetchBatchSize = 20;
+    
+    req.predicate = [NSPredicate predicateWithFormat:@"%K == %@",MXWNoteRelationships.books, self];
+    
+    // FetchedResultsController
+    NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
+                                      initWithFetchRequest:req
+                                      managedObjectContext:self.managedObjectContext
+                                      sectionNameKeyPath:MXWNoteAttributes.page
+                                      cacheName:nil];//[MXWBookRelationships.tags stringByAppendingString:@".tagName"]];
+    
+    return fc;
+}
 
 #pragma mark - special seters and getters
 - (void) downloadPDFwithCompletionBlock: (void (^)(bool downloaded))completionBlock {

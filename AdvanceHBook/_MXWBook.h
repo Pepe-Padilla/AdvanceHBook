@@ -67,9 +67,9 @@ extern const struct MXWBookRelationships {
 
 @property (nonatomic, strong) NSNumber* lastPage;
 
-@property (atomic) int16_t lastPageValue;
-- (int16_t)lastPageValue;
-- (void)setLastPageValue:(int16_t)value_;
+@property (atomic) int32_t lastPageValue;
+- (int32_t)lastPageValue;
+- (void)setLastPageValue:(int32_t)value_;
 
 //- (BOOL)validateLastPage:(id*)value_ error:(NSError**)error_;
 
@@ -153,8 +153,8 @@ extern const struct MXWBookRelationships {
 - (NSNumber*)primitiveLastPage;
 - (void)setPrimitiveLastPage:(NSNumber*)value;
 
-- (int16_t)primitiveLastPageValue;
-- (void)setPrimitiveLastPageValue:(int16_t)value_;
+- (int32_t)primitiveLastPageValue;
+- (void)setPrimitiveLastPageValue:(int32_t)value_;
 
 - (NSData*)primitivePdfData;
 - (void)setPrimitivePdfData:(NSData*)value;

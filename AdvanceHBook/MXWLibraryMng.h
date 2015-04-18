@@ -10,6 +10,7 @@
 @import UIKit;
 @import CoreData;
 @class AGTCoreDataStack;
+@class MXWBook;
 
 @interface MXWLibraryMng : NSObject
 
@@ -23,5 +24,6 @@
 - (NSMutableArray*) fetchForTags;
 - (NSMutableArray*) fetchForAuthors;
 - (void) autoSave;
+
 
 @end

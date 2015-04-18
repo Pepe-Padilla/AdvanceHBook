@@ -113,21 +113,21 @@ const struct MXWNoteRelationships MXWNoteRelationships = {
 
 @dynamic page;
 
-- (int16_t)pageValue {
+- (int32_t)pageValue {
 	NSNumber *result = [self page];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setPageValue:(int16_t)value_ {
+- (void)setPageValue:(int32_t)value_ {
 	[self setPage:@(value_)];
 }
 
-- (int16_t)primitivePageValue {
+- (int32_t)primitivePageValue {
 	NSNumber *result = [self primitivePage];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setPrimitivePageValue:(int16_t)value_ {
+- (void)setPrimitivePageValue:(int32_t)value_ {
 	[self setPrimitivePage:@(value_)];
 }
 

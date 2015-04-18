@@ -1,6 +1,7 @@
 #import "_MXWBook.h"
 @import UIKit;
 @class MXWGender;
+@import CoreData;
 
 @interface MXWBook : _MXWBook {}
 
@@ -15,5 +16,7 @@
                       context: (NSManagedObjectContext *) context;
 
 - (void) downloadPDFwithCompletionBlock: (void (^)(bool downloaded))completionBlock;
+
+- (NSFetchedResultsController*) fetchForNotes;
 
 @end

@@ -14,6 +14,7 @@
 #import "MXWNote.h"
 #import "MXWNote.h"
 #import "ReaderDocument.h"
+#import "MXWNotesCollectionViewController.h"
 
 @interface MXWBookViewController ()
 
@@ -116,10 +117,32 @@
     
     //self.lblGender.text = self.book.genders.genderName;
     
+    [self manageCollectionViewController];
     //self.cvNotes = //UICollectionView
     
     self.title = self.book.title;
 }
+
+- (void) manageCollectionViewController {
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
+    
+    layout.itemSize = CGSizeMake(100, 100);
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    // pa ver después
+    //layout.minimumLineSpacing = 10;
+    //layout.minimumInteritemSpacing = 10;
+    //                      UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>);
+    //layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    
+    layout.headerReferenceSize = CGSizeMake(20, 20);
+    
+    MXWNotesCollectionViewController * nvc = [[MXWNotesCollectionViewController alloc]
+                                              initWithFetchedResultsController:[self.book fetchForNotes] layout:layout];
+    
+    nvc.collectionView = self.cvNotes;
+    
+}
+
 
 #pragma mark - Actions
 - (IBAction)actionFavorite:(id)sender {

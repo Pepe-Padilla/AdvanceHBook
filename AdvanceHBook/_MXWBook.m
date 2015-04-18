@@ -115,21 +115,21 @@ const struct MXWBookRelationships MXWBookRelationships = {
 
 @dynamic lastPage;
 
-- (int16_t)lastPageValue {
+- (int32_t)lastPageValue {
 	NSNumber *result = [self lastPage];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setLastPageValue:(int16_t)value_ {
+- (void)setLastPageValue:(int32_t)value_ {
 	[self setLastPage:@(value_)];
 }
 
-- (int16_t)primitiveLastPageValue {
+- (int32_t)primitiveLastPageValue {
 	NSNumber *result = [self primitiveLastPage];
-	return [result shortValue];
+	return [result intValue];
 }
 
-- (void)setPrimitiveLastPageValue:(int16_t)value_ {
+- (void)setPrimitiveLastPageValue:(int32_t)value_ {
 	[self setPrimitiveLastPage:@(value_)];
 }
 

@@ -64,9 +64,9 @@ extern const struct MXWNoteRelationships {
 
 @property (nonatomic, strong) NSNumber* page;
 
-@property (atomic) int16_t pageValue;
-- (int16_t)pageValue;
-- (void)setPageValue:(int16_t)value_;
+@property (atomic) int32_t pageValue;
+- (int32_t)pageValue;
+- (void)setPageValue:(int32_t)value_;
 
 //- (BOOL)validatePage:(id*)value_ error:(NSError**)error_;
 
@@ -117,8 +117,8 @@ extern const struct MXWNoteRelationships {
 - (NSNumber*)primitivePage;
 - (void)setPrimitivePage:(NSNumber*)value;
 
-- (int16_t)primitivePageValue;
-- (void)setPrimitivePageValue:(int16_t)value_;
+- (int32_t)primitivePageValue;
+- (void)setPrimitivePageValue:(int32_t)value_;
 
 - (NSString*)primitiveText;
 - (void)setPrimitiveText:(NSString*)value;
