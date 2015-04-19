@@ -34,5 +34,4 @@
 -(NSArray *) executeFetchRequest:(NSFetchRequest *)req
                       errorBlock:(void(^)(NSError *error)) errorBlock;
 
-
 @end

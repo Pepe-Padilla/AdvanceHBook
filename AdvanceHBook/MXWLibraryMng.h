@@ -25,5 +25,6 @@
 - (NSMutableArray*) fetchForAuthors;
 - (void) autoSave;
 
+-(NSManagedObjectContext *) contextOfLibrary;
 
 @end

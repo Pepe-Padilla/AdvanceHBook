@@ -70,12 +70,16 @@
     self.maTags = [self.library fetchForTags];
     self.maAuthors = [self.library fetchForAuthors];
     
-    NSMutableArray * aSections = [NSMutableArray arrayWithArray:@[self.mdHeader, self.mdFavorites]];
+    NSMutableArray * aSections = [NSMutableArray arrayWithArray:@[self.mdFavorites]];
     
     [aSections addObjectsFromArray:self.maTags];
     
     [self setFetchedArray:aSections];
     [self.library autoSave];
+}
+
+- (NSManagedObjectContext*) librayContext {
+    return [self.library contextOfLibrary];
 }
 
 #pragma mark - Life cycle
@@ -185,6 +189,12 @@
         }
         //MXWBookViewController * bVC = [[MXWBookViewController alloc] initWithModel:b];
         
+        NSData * bookdData = [b archiveURIRepresentation];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:bookdData
+                     forKey:[NSString stringWithFormat:@"MXWbook_selected"]];
+        [defaults synchronize];
     }
 }
 

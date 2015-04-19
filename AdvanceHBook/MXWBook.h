@@ -19,4 +19,10 @@
 
 - (NSFetchedResultsController*) fetchForNotes;
 
+
+-(NSData*) archiveURIRepresentation;
+
++(instancetype) objectWithArchivedURIRepresentation:(NSData*)archivedURI
+                                            context:(NSManagedObjectContext *) context;
+
 @end

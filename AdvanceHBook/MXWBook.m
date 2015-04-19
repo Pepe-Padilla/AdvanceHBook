@@ -13,6 +13,55 @@
 
 @implementation MXWBook
 
+
+#pragma mark - dafault manager
++(instancetype) objectWithArchivedURIRepresentation:(NSData*)archivedURI
+                                            context:(NSManagedObjectContext *) context{
+    
+    NSURL *uri = [NSKeyedUnarchiver unarchiveObjectWithData:archivedURI];
+    if (uri == nil) {
+        return nil;
+    }
+    
+    
+    NSManagedObjectID *nid = [context.persistentStoreCoordinator
+                              managedObjectIDForURIRepresentation:uri];
+    if (nid == nil) {
+        return nil;
+    }
+    
+    
+    NSManagedObject *ob = [context objectWithID:nid];
+    if (ob.isFault) {
+        // Got it!
+        return (MXWBook*)ob;
+    }else{
+        // Might not exist anymore. Let's fetch it!
+        NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:ob.entity.name];
+        req.predicate = [NSPredicate predicateWithFormat:@"SELF = %@", ob];
+        
+        NSError *error;
+        NSArray *res = [context executeFetchRequest:req
+                                              error:&error];
+        if (res == nil) {
+            return nil;
+        }else{
+            return [res lastObject];
+        }
+    }
+    
+    
+}
+
+-(NSData*) archiveURIRepresentation{
+    
+    NSURL *uri = self.objectID.URIRepresentation;
+    return [NSKeyedArchiver archivedDataWithRootObject:uri];
+    
+}
+
+#pragma mark - fetchs
+
 - (NSFetchedResultsController*) fetchForNotes {
     
     NSFetchRequest *req = [NSFetchRequest fetchRequestWithEntityName:[MXWNote entityName]];

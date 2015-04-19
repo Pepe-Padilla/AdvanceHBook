@@ -51,12 +51,67 @@
 
 #pragma mark - Actions
 - (IBAction)doneAction:(id)sender {
+    
+    self.note.modificationDate = [NSDate date];
+    
+    self.note.text = self.textNoteText.text;
+    
+    self.note.noteImg = self.imageNote.image;
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
 }
 
 - (IBAction)trashAction:(id)sender {
+    
+    [self.note.managedObjectContext deleteObject:self.note];
+    
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+    
 }
 
 - (IBAction)cameraAction:(id)sender {
+    
+    self.note.text = self.textNoteText.text;
+    
+    UIImagePickerController * piker = [[UIImagePickerController alloc] init];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        piker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    } else {
+        piker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    piker.delegate = self;
+    
+    piker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    [self presentViewController:piker animated:YES completion:^{
+        
+    }];
+
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void) imagePickerController:(UIImagePickerController *)picker
+ didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    // Sacamos la UImage del diccionario
+    // Pico de memoria asegurado:
+    UIImage  * img = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    
+    //La guardo en el modelo y la despliego
+    self.imageNote.image = img;
+    self.note.noteImg = img;
+    
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+                                 
+                             }];
 }
 
 @end

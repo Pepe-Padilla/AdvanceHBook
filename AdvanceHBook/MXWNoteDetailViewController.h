@@ -9,7 +9,7 @@
 @import UIKit;
 @class MXWNote;
 
-@interface MXWNoteDetailViewController : UIViewController
+@interface MXWNoteDetailViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *labelPage;
 @property (weak, nonatomic) IBOutlet UILabel *labelCreationDate;

@@ -26,10 +26,23 @@
                                      initWithStyle:UITableViewStylePlain];
     [lVC manageStart];
     
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    MXWBook * aBook = nil;
     
-    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+    id anId=[defaults objectForKey:@"MXWbook_selected"];
+    if (anId) {
+        aBook = [MXWBook objectWithArchivedURIRepresentation:anId
+                                                     context:[lVC librayContext]];
+    }
     
-    MXWBook * aBook = [lVC fetchedObjectAtIndexPath:indexPath];
+    if (!aBook) {
+        NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:2];
+        aBook = [lVC fetchedObjectAtIndexPath:indexPath];
+    }
+    
+    
+    
+    
     
     MXWBookViewController * bVC = [[MXWBookViewController alloc] initWithModel:aBook];
     

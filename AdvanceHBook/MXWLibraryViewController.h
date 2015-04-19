@@ -28,6 +28,6 @@
 @property (weak, nonatomic) id<MXWLibraryViewControllerDelegate> delegate;
 
 - (void) manageStart;
-
+- (NSManagedObjectContext*) librayContext;
 
 @end

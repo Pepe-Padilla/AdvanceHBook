@@ -30,6 +30,10 @@
 
 }
 
+-(NSManagedObjectContext *) contextOfLibrary {
+    return self.stack.context;
+}
+
 - (NSMutableArray*) fetchBooksfromFetchOfN2NSections: (NSFetchedResultsController *) aFetch {
     NSMutableArray * arr = [[NSMutableArray alloc] init];
     
