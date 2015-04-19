@@ -12,6 +12,7 @@
 #import "MXWAuthor.h"
 #import "MXWLibraryMng.h"
 #import "Header.h"
+#import "MXWNotesCollectionViewController.h"
 
 @interface MXWLibraryViewController ()
 
@@ -77,6 +78,41 @@
     [self.library autoSave];
 }
 
+#pragma mark - Life cycle
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter ];
+    [nc addObserver:self
+           selector:@selector(bookViewDidViewPDF:)
+               name:BOOK_VIEW_PDF_OPEN
+             object:nil];
+    
+    [nc addObserver:self
+           selector:@selector(bookDidClosePDF:)
+               name:BOOK_VIEW_PDF_CLOSE
+             object:nil];
+    
+    if ([self.delegate respondsToSelector:@selector(libraryTableViewControllerPDFActive:)]) {
+    
+        MXWBook * aBook = [self.delegate libraryTableViewControllerPDFActive:self];
+        
+        if (aBook) {
+            [self bookViewDidViewPDFWithBook:aBook];
+        } else {
+            [self bookDidClosePDF:nil];
+        }
+    }
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
+#pragma mark - DataSource
 -(UITableViewCell *)tableView:(UITableView *)tableView
         cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -152,5 +188,48 @@
     }
 }
 
+#pragma mark - Notification
+// BOOK_VIEW_PDF_OPEN
+- (void) bookViewDidViewPDF:(NSNotification*) notification{
+    
+    MXWBook * aBook = [notification.userInfo objectForKey:BOOK_PDF];
+    [self bookViewDidViewPDFWithBook:aBook];
+}
+
+-(void) bookViewDidViewPDFWithBook:(MXWBook*) aBook {
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
+    
+    layout.itemSize = CGSizeMake(155, 130);
+    layout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    layout.minimumLineSpacing = 1;
+    layout.minimumInteritemSpacing = 1;
+    //                    UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>);
+    layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
+    
+    layout.headerReferenceSize = CGSizeMake(20, 20);
+    
+    MXWNotesCollectionViewController * ncvc = [[MXWNotesCollectionViewController alloc]
+                                               initWithFetchedResultsController:[aBook fetchForNotes]
+                                               layout:layout];
+    
+    UIBarButtonItem *blanckB = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:nil];
+    
+    ncvc.navigationItem.leftBarButtonItem = blanckB;
+    
+    [self.navigationController pushViewController:ncvc
+                                         animated:YES];
+    
+    self.navigationItem.leftBarButtonItem = blanckB;
+}
+
+// BOOK_VIEW_PDF_CLOSE
+- (void) bookDidClosePDF :(NSNotification*) notification{
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
 
 @end

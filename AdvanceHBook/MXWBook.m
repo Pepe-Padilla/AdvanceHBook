@@ -25,7 +25,7 @@
                                                           ascending:YES]];
     req.fetchBatchSize = 20;
     
-    req.predicate = [NSPredicate predicateWithFormat:@"%K == %@",MXWNoteRelationships.books, self];
+    req.predicate = [NSPredicate predicateWithFormat:@"ANY %K == %@",MXWNoteRelationships.books, self];
     
     // FetchedResultsController
     NSFetchedResultsController *fc = [[NSFetchedResultsController alloc]
@@ -136,11 +136,11 @@
     return n;
 }
 
+
 -(void)withImageURL: (NSURL *) url
     completionBlock: (void (^)(UIImage*image))completionBlock{
     
     
-    // nos vamos a 2º plano a descargar la imagen
     dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
         
         NSData *data = [NSData dataWithContentsOfURL:url];
@@ -150,8 +150,6 @@
             NSLog(@"image not found: %@",[url absoluteString]);
         }
         
-        // cuando la tengo, me voy a primer plano
-        // llamo al completionBlock
         dispatch_async(dispatch_get_main_queue(), ^{
             completionBlock(img);
         });

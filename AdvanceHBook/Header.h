@@ -15,3 +15,8 @@
 #define SECTION_FRC @"SECTION_FRC"
 #define FETCH_RC @"FETCH_RC"
 #define NOFRC_COUNT @"NOFRC_COUNT"
+
+// notifications constants
+#define BOOK_PDF @"BOOK_PDF"
+#define BOOK_VIEW_PDF_OPEN @"BOOK_VIEW_PDF_OPEN"
+#define BOOK_VIEW_PDF_CLOSE @"BOOK_VIEW_PDF_CLOSE"

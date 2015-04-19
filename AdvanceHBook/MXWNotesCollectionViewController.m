@@ -9,6 +9,8 @@
 #import "MXWNotesCollectionViewController.h"
 #import "MXWNote.h"
 #import "MXWNoteCollectionViewCell.h"
+#import "MXWBookViewController.h"
+#import "Header.h"
 
 @interface MXWNotesCollectionViewController ()
 
@@ -33,7 +35,36 @@ static NSString * const reuseHeaderIdentifier = @"NotesCVHeader";
     //        forCellWithReuseIdentifier:reuseCellIdentifier];
 }
 
-#pragma mark - life cycle
+#pragma mark - Life cycle
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter ];
+    [nc addObserver:self
+           selector:@selector(bookDidClosePDF:)
+               name:BOOK_VIEW_PDF_CLOSE
+             object:nil];
+    
+    UIBarButtonItem *blanckB = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                style:UIBarButtonItemStylePlain
+                                                               target:self
+                                                               action:nil];
+    
+    self.navigationItem.leftBarButtonItem = blanckB;
+    
+    NSArray *splitAr = self.splitViewController.viewControllers;
+    NSArray *detailAr = [splitAr[1] childViewControllers];
+    if (detailAr.count == 1) {
+        [self bookDidClosePDF:nil];
+    }
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -117,6 +148,11 @@ static NSString * const reuseHeaderIdentifier = @"NotesCVHeader";
     return cell;
 }
 
-
+// BOOK_VIEW_PDF_CLOSE
+- (void) bookDidClosePDF :(NSNotification*) notification{
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
+    
+}
 
 @end

@@ -123,39 +123,6 @@
 }
 
 
-- (void)setFetchedResultsController:(NSFetchedResultsController *)newfrc {
-    [self.arrayTable enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSMutableDictionary * dictionary = obj;
-        
-        NSString * sectionRFC = [dictionary objectForKey:SECTION_FRC];
-        
-        
-        if([sectionRFC isEqualToString:@"YES"]){
-            NSFetchedResultsController * fetchedResultsController = [dictionary objectForKey:FETCH_RC];
-            if(fetchedResultsController){
-                NSFetchedResultsController *oldfrc = fetchedResultsController;
-                if (newfrc != oldfrc) {
-                    fetchedResultsController = newfrc;
-                    newfrc.delegate = self;
-                    if ((!self.title || [self.title isEqualToString:oldfrc.fetchRequest.entity.name]) && (!self.navigationController || !self.navigationItem.title)) {
-                        self.title = newfrc.fetchRequest.entity.name;
-                    }
-                    if (newfrc) {
-                        if (self.debug) NSLog(@"[%@ %@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), oldfrc ? @"updated" : @"set");
-                        [self performFetch];
-                    } else {
-                        if (self.debug) NSLog(@"[%@ %@] reset to nil", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
-                        
-                    }
-                    [dictionary setObject:fetchedResultsController forKey:FETCH_RC];
-                    [self.arrayTable setObject:dictionary atIndexedSubscript:idx];
-                }
-            }
-        }
-    }];
-    [self.tableView reloadData];
-}
-
 - (NSIndexPath *) transformIndexPathWithController: (NSFetchedResultsController *)controller
                                        atIndexPath: (NSIndexPath *) indexPath{
     

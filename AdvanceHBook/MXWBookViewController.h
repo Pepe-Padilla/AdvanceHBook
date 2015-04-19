@@ -15,20 +15,12 @@
 
 @protocol MXWBookViewControllerDelegate <NSObject>
 
-@required
+@optional
 -(void) bookViewController: (MXWBookViewController *) lVC
                 didViewPDF: (MXWBook *) aBook;
 
 -(void) bookViewController: (MXWBookViewController *) lVC
                didClosePDF: (MXWBook *) aBook;
-
-@optional
--(void) bookViewController: (MXWBookViewController *) lVC
-             didAddNotePDF: (MXWBook *) aBook
-                   forPage: (NSNumber*) page;
-
-
-
 
 @end
 

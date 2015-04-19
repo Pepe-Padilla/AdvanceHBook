@@ -15,11 +15,14 @@
 #import "MXWNote.h"
 #import "ReaderDocument.h"
 #import "MXWNotesCollectionViewController.h"
+#import "Header.h"
 
 @interface MXWBookViewController ()
 
 @property (strong, nonatomic) ReaderDocument * document;
 @property (strong, nonatomic) ReaderViewController *readerViewController;
+@property (nonatomic) BOOL onPDF;
+//@property (nonatomic) SEL aSel;
 
 @end
 
@@ -31,6 +34,7 @@
         _book = aBook;
         _document = nil;
         self.title = aBook.title;
+        _onPDF = NO;
     }
     
     return self;
@@ -40,8 +44,16 @@
     [super viewWillAppear:animated];
     self.edgesForExtendedLayout= UIRectEdgeNone;
     self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
-
+    //self.aSel = self.splitViewController.displayModeButtonItem.action;
+    self.onPDF = NO;
+    
     [self manageBook];
+    [self setupKVO];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self tearDownKVO];
 }
 
 - (void) manageBook {
@@ -126,13 +138,12 @@
 - (void) manageCollectionViewController {
     UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
     
-    layout.itemSize = CGSizeMake(100, 100);
+    layout.itemSize = CGSizeMake(155, 130);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    // pa ver después
-    //layout.minimumLineSpacing = 10;
-    //layout.minimumInteritemSpacing = 10;
-    //                      UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>);
-    //layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    layout.minimumLineSpacing = 1;
+    layout.minimumInteritemSpacing = 1;
+    //                    UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>);
+    layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1);
     
     layout.headerReferenceSize = CGSizeMake(20, 20);
     
@@ -221,8 +232,8 @@
                                                           initWithReaderDocument:self.document];
             self.readerViewController.delegate = self;
             
-            self.readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            self.readerViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
+            //self.readerViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            //self.readerViewController.modalPresentationStyle = UIModalPresentationCurrentContext;
             
             
             //[self presentViewController:readerViewController animated:YES completion:^{
@@ -232,7 +243,6 @@
             self.readerViewController.title = self.book.title;
             self.readerViewController.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
             
-            UIView * container = [[UIView alloc] init];
             
             UIBarButtonItem *dismis = [[UIBarButtonItem alloc]
                                        initWithBarButtonSystemItem:UIBarButtonSystemItemDone
@@ -241,38 +251,60 @@
             UIBarButtonItem *addNote = [[UIBarButtonItem alloc] initWithTitle:@"Add Note"
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
-                                                                       action:@selector(addNote:)];
+                                                                       action:@selector(addNote)];
             
-            //UIButton *dismis = [[UIButton alloc] init];
-            //[dismis set];
-                              //         initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                              //         target:self action:@selector(dismissReaderViewController:)];
+            NSArray * arrItems = @[dismis,addNote];
             
-            //UIButton *addNote = [[UIButton alloc] initWithTitle:@"Add Note"
-            //                                                            style:UIBarButtonItemStylePlain
-            //                                                           target:self
-            //                                                           action:@selector(addNote:)];
+            self.readerViewController.navigationItem.rightBarButtonItems = arrItems;
             
-            [container addSubview:addNote];
-            [container addSubview:dismis];
+            //self.readerViewController.navigationItem.leftBarButtonItem = addNote;
             
-            self.readerViewController.navigationItem.rightBarButtonItem = dismis;
-
+            self.onPDF = YES;
+            
             
             [self.navigationController pushViewController:self.readerViewController
                                                  animated:YES];
+            //UINavigationController *navController = self.splitViewController.viewControllers[0];
+            
+            
+            if ([self.splitViewController displayMode] == UISplitViewControllerDisplayModePrimaryHidden) {
+                //[self.splitViewController separateSecondaryViewControllerForSplitViewController:self.splitViewController];
+                //self.splitViewController.preferredDisplayMode = UISplitViewControllerDisplayModeAllVisible;
+                //[self performSelector:self.aSel];//self.splitViewController.displayModeButtonItem.action];
+                //[self.splitViewController showViewController:<#(UIViewController *)#> sender:self]
+            }
+            
+            
             
             
             if ([self.delegate respondsToSelector:@selector(bookViewController:didViewPDF:)]) {
                 [self.delegate bookViewController:self
-                                      didClosePDF:self.book];
+                                       didViewPDF:self.book];
             }
+            
+            NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+            
+            NSDictionary * dict = @{BOOK_PDF : self.book};
+            
+            NSNotification * n = [NSNotification notificationWithName: BOOK_VIEW_PDF_OPEN
+                                                               object: self
+                                                             userInfo: dict];
+            [nc postNotification:n];
+
             
         }
         
     }
 }
 
+-(void) addNote {
+    
+    self.document = [self.readerViewController getReaderDocument];
+    MXWNote * n = [MXWNote noteWithPage:self.document.pageNumber
+                                context:self.book.managedObjectContext];
+    [self.book addNotesObject:n];
+    
+}
 
 
 #pragma mark - MXWLibraryViewControllerDelegate
@@ -285,6 +317,14 @@
     
 }
 
+- (MXWBook*) libraryTableViewControllerPDFActive:(MXWLibraryViewController *) lVC {
+    if (self.onPDF) {
+        return self.book;
+    } else {
+        return nil;
+    }
+}
+
 
 #pragma mark - UISplitViewControllerDelegate
 -(void) splitViewController:(UISplitViewController *)svc
@@ -293,6 +333,7 @@
     if (displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
         // tabla oculta
         self.navigationItem.leftBarButtonItem = svc.displayModeButtonItem;
+        //self.aSel = svc.displayModeButtonItem.action;
     } else {
         //Se muestra la tabla
         self.navigationItem.leftBarButtonItem = nil;
@@ -303,6 +344,22 @@
 
 #pragma mark - ReaderViewControllerDelegate
 - (void)dismissReaderViewController:(ReaderViewController *)viewController {
+    
+    self.onPDF = NO;
+    
+    if ([self.delegate respondsToSelector:@selector(bookViewController:didClosePDF:)]) {
+        [self.delegate bookViewController:self
+                              didClosePDF:self.book];
+    }
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    NSDictionary * dict = @{BOOK_PDF : self.book};
+    
+    NSNotification * n = [NSNotification notificationWithName: BOOK_VIEW_PDF_CLOSE
+                                                       object: self
+                                                     userInfo: dict];
+    [nc postNotification:n];
     
     self.document = [self.readerViewController getReaderDocument];
     
@@ -318,8 +375,33 @@
     
     }];
     
-    [self.navigationController popToViewController:self
-                                          animated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+#pragma mark - KVO
+-(void) setupKVO{
+    
+    if (self.book.portraid == nil)
+    [self.book addObserver:self
+                forKeyPath:MXWBookAttributes.portraid
+                   options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
+                   context:NULL];
+    
+}
+
+-(void) tearDownKVO{
+    // si me doy de baja el KVO en el viewWillDisaper me da un excepción de que el elemento ya observado ya no existe.
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context {
+    
+    self.imgPrortraid.image = self.book.portraidImg;
+    [self.book removeObserver:self
+                   forKeyPath:MXWBookAttributes.portraid];
+}
+
 
 @end

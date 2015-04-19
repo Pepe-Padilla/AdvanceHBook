@@ -8,14 +8,16 @@
 
 #import "MXWCoreDataTableViewController.h"
 #import "MXWBook.h"
+//#import "MXWBookViewController.h"
 @class MXWLibraryViewController;
-
 
 @protocol MXWLibraryViewControllerDelegate <NSObject>
 
 @optional
 -(void) libraryTableViewController: (MXWLibraryViewController *) lVC
                      didSelectBook: (MXWBook *) aBook;
+
+-(MXWBook *) libraryTableViewControllerPDFActive: (MXWLibraryViewController *) lVC;
 
 
 @end

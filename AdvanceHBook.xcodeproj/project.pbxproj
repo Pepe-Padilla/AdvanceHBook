@@ -86,6 +86,7 @@
 		B1897C181AD98A46008D743C /* MXWTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C141AD98A46008D743C /* MXWTag.m */; };
 		B1897C1B1AD99724008D743C /* Book_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B1897C1A1AD99724008D743C /* Book_placeholder.png */; };
 		B1897C1F1AD9C245008D743C /* MXWLibraryMng.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897C1E1AD9C245008D743C /* MXWLibraryMng.m */; };
+		B1907B4C1AE3E637004A2E95 /* UISplitViewController+MXWCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1907B4B1AE3E637004A2E95 /* UISplitViewController+MXWCategoryViewController.m */; };
 		B1ABB2061AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1ABB2051AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m */; };
 		B1B979BF1ADC69CC00A3D5D8 /* MXWBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1B979BD1ADC69CC00A3D5D8 /* MXWBookViewController.m */; };
 		B1B979C01ADC69CC00A3D5D8 /* MXWBookViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B979BE1ADC69CC00A3D5D8 /* MXWBookViewController.xib */; };
@@ -233,6 +234,8 @@
 		B1897C1A1AD99724008D743C /* Book_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Book_placeholder.png; sourceTree = "<group>"; };
 		B1897C1D1AD9C245008D743C /* MXWLibraryMng.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWLibraryMng.h; sourceTree = "<group>"; };
 		B1897C1E1AD9C245008D743C /* MXWLibraryMng.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWLibraryMng.m; sourceTree = "<group>"; };
+		B1907B4A1AE3E637004A2E95 /* UISplitViewController+MXWCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISplitViewController+MXWCategoryViewController.h"; sourceTree = "<group>"; };
+		B1907B4B1AE3E637004A2E95 /* UISplitViewController+MXWCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISplitViewController+MXWCategoryViewController.m"; sourceTree = "<group>"; };
 		B1ABB2041AE0595C00AA7CA0 /* MXWNotesCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWNotesCollectionViewController.h; sourceTree = "<group>"; };
 		B1ABB2051AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWNotesCollectionViewController.m; sourceTree = "<group>"; };
 		B1B979BC1ADC69CC00A3D5D8 /* MXWBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWBookViewController.h; sourceTree = "<group>"; };
@@ -398,6 +401,7 @@
 		B1897BC41AD9529E008D743C /* AdvanceHBook */ = {
 			isa = PBXGroup;
 			children = (
+				B1907B4D1AE3E63C004A2E95 /* Categories */,
 				B17D16FF1ADEDA2E00DFE4A2 /* PDF Reader */,
 				B1897BC91AD9529E008D743C /* AppDelegate.h */,
 				B1897BCA1AD9529E008D743C /* AppDelegate.m */,
@@ -522,6 +526,15 @@
 				B1897C1A1AD99724008D743C /* Book_placeholder.png */,
 			);
 			name = img;
+			sourceTree = "<group>";
+		};
+		B1907B4D1AE3E63C004A2E95 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				B1907B4A1AE3E637004A2E95 /* UISplitViewController+MXWCategoryViewController.h */,
+				B1907B4B1AE3E637004A2E95 /* UISplitViewController+MXWCategoryViewController.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -700,6 +713,7 @@
 				B1897BF31AD98475008D743C /* AGTCoreDataStack.m in Sources */,
 				B152F5DD1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m in Sources */,
 				B1897C161AD98A46008D743C /* MXWGender.m in Sources */,
+				B1907B4C1AE3E637004A2E95 /* UISplitViewController+MXWCategoryViewController.m in Sources */,
 				B1897C181AD98A46008D743C /* MXWTag.m in Sources */,
 				B1740D401AE2B663000ECB0F /* MXWNoteCollectionViewCell.m in Sources */,
 				B1897BF91AD986D8008D743C /* MXWBaseManagedObject.m in Sources */,
