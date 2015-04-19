@@ -66,6 +66,8 @@
 		B17D177B1ADEDB2600DFE4A2 /* Reader-Print@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B17D17601ADEDB2600DFE4A2 /* Reader-Print@2x.png */; };
 		B17D177C1ADEDB2600DFE4A2 /* Reader-Thumbs.png in Resources */ = {isa = PBXBuildFile; fileRef = B17D17611ADEDB2600DFE4A2 /* Reader-Thumbs.png */; };
 		B17D177D1ADEDB2600DFE4A2 /* Reader-Thumbs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B17D17621ADEDB2600DFE4A2 /* Reader-Thumbs@2x.png */; };
+		B18032BB1AE432BB00AEDB67 /* MXWNoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18032B91AE432BB00AEDB67 /* MXWNoteDetailViewController.m */; };
+		B18032BC1AE432BB00AEDB67 /* MXWNoteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18032BA1AE432BB00AEDB67 /* MXWNoteDetailViewController.xib */; };
 		B1897BC81AD9529E008D743C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BC71AD9529E008D743C /* main.m */; };
 		B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BCA1AD9529E008D743C /* AppDelegate.m */; };
 		B1897BD31AD9529E008D743C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1897BD21AD9529E008D743C /* Images.xcassets */; };
@@ -195,6 +197,9 @@
 		B17D17601ADEDB2600DFE4A2 /* Reader-Print@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Print@2x.png"; sourceTree = "<group>"; };
 		B17D17611ADEDB2600DFE4A2 /* Reader-Thumbs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs.png"; sourceTree = "<group>"; };
 		B17D17621ADEDB2600DFE4A2 /* Reader-Thumbs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Reader-Thumbs@2x.png"; sourceTree = "<group>"; };
+		B18032B81AE432BB00AEDB67 /* MXWNoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWNoteDetailViewController.h; sourceTree = "<group>"; };
+		B18032B91AE432BB00AEDB67 /* MXWNoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWNoteDetailViewController.m; sourceTree = "<group>"; };
+		B18032BA1AE432BB00AEDB67 /* MXWNoteDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXWNoteDetailViewController.xib; sourceTree = "<group>"; };
 		B1897BC21AD9529E008D743C /* AdvanceHBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvanceHBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1897BC61AD9529E008D743C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1897BC71AD9529E008D743C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -477,6 +482,9 @@
 				B1B979BE1ADC69CC00A3D5D8 /* MXWBookViewController.xib */,
 				B1ABB2041AE0595C00AA7CA0 /* MXWNotesCollectionViewController.h */,
 				B1ABB2051AE0595C00AA7CA0 /* MXWNotesCollectionViewController.m */,
+				B18032B81AE432BB00AEDB67 /* MXWNoteDetailViewController.h */,
+				B18032B91AE432BB00AEDB67 /* MXWNoteDetailViewController.m */,
+				B18032BA1AE432BB00AEDB67 /* MXWNoteDetailViewController.xib */,
 				B1740D3E1AE2B663000ECB0F /* MXWNoteCollectionViewCell.h */,
 				B1740D3F1AE2B663000ECB0F /* MXWNoteCollectionViewCell.m */,
 				B1740D371AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib */,
@@ -654,6 +662,7 @@
 				B17D176E1ADEDB2600DFE4A2 /* Reader-Button-H.png in Resources */,
 				B17D17711ADEDB2600DFE4A2 /* Reader-Button-N@2x.png in Resources */,
 				B17D17701ADEDB2600DFE4A2 /* Reader-Button-N.png in Resources */,
+				B18032BC1AE432BB00AEDB67 /* MXWNoteDetailViewController.xib in Resources */,
 				B17D17731ADEDB2600DFE4A2 /* Reader-Email@2x.png in Resources */,
 				B1B979C61ADC77FA00A3D5D8 /* starUP.png in Resources */,
 				B17D176D1ADEDB2600DFE4A2 /* Default-736h@3x.png in Resources */,
@@ -712,6 +721,7 @@
 				B17D17431ADEDACE00DFE4A2 /* ReaderViewController.m in Sources */,
 				B1897BF31AD98475008D743C /* AGTCoreDataStack.m in Sources */,
 				B152F5DD1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m in Sources */,
+				B18032BB1AE432BB00AEDB67 /* MXWNoteDetailViewController.m in Sources */,
 				B1897C161AD98A46008D743C /* MXWGender.m in Sources */,
 				B1907B4C1AE3E637004A2E95 /* UISplitViewController+MXWCategoryViewController.m in Sources */,
 				B1897C181AD98A46008D743C /* MXWTag.m in Sources */,

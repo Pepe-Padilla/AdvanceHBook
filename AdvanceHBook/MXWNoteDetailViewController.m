@@ -1,0 +1,62 @@
+//
+//  MXWNoteDetailViewController.m
+//  AdvanceHBook
+//
+//  Created by Pepe Padilla on 15/19/04.
+//  Copyright (c) 2015 maxeiware. All rights reserved.
+//
+
+#import "MXWNoteDetailViewController.h"
+#import "MXWNote.h"
+
+@interface MXWNoteDetailViewController ()
+
+@property (strong,nonatomic) MXWNote * note;
+
+@end
+
+@implementation MXWNoteDetailViewController
+
+
+- (id) initWithModel:(MXWNote *) aNote {
+    
+    if (self = [super initWithNibName:nil bundle:nil]) {
+        _note = aNote;
+    }
+    
+    return self;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    self.labelPage.text = [@"Page: " stringByAppendingString:[self.note.page stringValue]];
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterFullStyle];
+    
+    self.labelCreationDate.text = [@"Creation Date: " stringByAppendingString:
+                                   [dateFormatter stringFromDate:self.note.creationDate]];
+    self.labelModificationDate.text = [@"Modification Date: " stringByAppendingString:
+                                       [dateFormatter stringFromDate:self.note.modificationDate]];
+    
+    self.textNoteText.text = self.note.text;
+    
+    self.imageNote.image = self.note.noteImg;
+    
+}
+
+
+#pragma mark - Actions
+- (IBAction)doneAction:(id)sender {
+}
+
+- (IBAction)trashAction:(id)sender {
+}
+
+- (IBAction)cameraAction:(id)sender {
+}
+
+@end

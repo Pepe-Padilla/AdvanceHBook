@@ -10,6 +10,7 @@
 #import "MXWNote.h"
 #import "MXWNoteCollectionViewCell.h"
 #import "MXWBookViewController.h"
+#import "MXWNoteDetailViewController.h"
 #import "Header.h"
 
 @interface MXWNotesCollectionViewController ()
@@ -146,6 +147,21 @@ static NSString * const reuseHeaderIdentifier = @"NotesCVHeader";
     
     
     return cell;
+}
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    MXWNote * n = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    MXWNoteDetailViewController * ndVC = [[MXWNoteDetailViewController alloc] initWithModel:n];
+    
+    
+    ndVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    ndVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    
+    [self presentViewController:ndVC animated:YES completion:^{
+        
+    }];
 }
 
 // BOOK_VIEW_PDF_CLOSE

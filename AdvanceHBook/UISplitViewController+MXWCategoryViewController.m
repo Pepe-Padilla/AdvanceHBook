@@ -10,12 +10,5 @@
 
 @implementation UIViewController (MXWNavigaton)
 
--(UINavigationController *) wrappedInNavigation{
-    
-    UINavigationController *nav = [UINavigationController new];
-    [nav pushViewController:self
-                   animated:NO];
-    return nav;
-}
 
 @end

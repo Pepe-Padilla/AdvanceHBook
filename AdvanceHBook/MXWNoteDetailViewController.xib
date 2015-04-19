@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MXWNoteDetailViewController">
+            <connections>
+                <outlet property="imageNote" destination="9uk-aq-D2d" id="UZK-t0-WpL"/>
+                <outlet property="labelCreationDate" destination="wHG-Fy-Nrm" id="Bgc-RF-Hr3"/>
+                <outlet property="labelModificationDate" destination="sL8-q2-GvY" id="opO-bn-9tc"/>
+                <outlet property="labelPage" destination="Gjc-VJ-9pV" id="YdZ-KC-5rI"/>
+                <outlet property="textNoteText" destination="l6t-m8-jcD" id="U5I-ux-f9L"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5R-Y4-7FH">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <items>
+                        <barButtonItem systemItem="camera" id="H2q-fy-STF">
+                            <connections>
+                                <action selector="cameraAction:" destination="-1" id="Fi0-ul-bWf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="2x5-Zu-j0J"/>
+                        <barButtonItem systemItem="trash" id="XWk-Sm-Huq">
+                            <connections>
+                                <action selector="trashAction:" destination="-1" id="WZb-1g-YvT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem width="66" style="plain" systemItem="fixedSpace" id="9kZ-6I-sml"/>
+                        <barButtonItem systemItem="done" id="uT0-N1-ZZ2">
+                            <connections>
+                                <action selector="doneAction:" destination="-1" id="8mS-Va-J7h"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="44"/>
+                    </variation>
+                    <variation key="widthClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="0.0" width="792" height="44"/>
+                    </variation>
+                    <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="44"/>
+                    </variation>
+                </toolbar>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL8-q2-GvY">
+                    <rect key="frame" x="277" y="77" width="323" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" red="0.071476483585858563" green="0.071476483585858563" blue="0.071476483585858563" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="167" y="73" width="323" height="21"/>
+                    </variation>
+                    <variation key="widthClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="469" y="87" width="323" height="21"/>
+                    </variation>
+                    <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="469" y="74" width="323" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHG-Fy-Nrm">
+                    <rect key="frame" x="277" y="48" width="323" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" red="0.071476483590000001" green="0.071476483590000001" blue="0.071476483590000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="167" y="48" width="323" height="21"/>
+                    </variation>
+                    <variation key="widthClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="469" y="58" width="323" height="21"/>
+                    </variation>
+                    <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="469" y="45" width="323" height="21"/>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjc-VJ-9pV">
+                    <rect key="frame" x="34" y="59" width="159" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="34" y="59" width="125" height="21"/>
+                    </variation>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="post-it-198796-m.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="3K9-cw-gEe">
+                    <rect key="frame" x="34" y="102" width="378" height="264"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="11" y="93" width="378" height="264"/>
+                    </variation>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l6t-m8-jcD">
+                    <rect key="frame" x="58" y="118" width="330" height="225"/>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <color key="textColor" red="0.13208254419191923" green="0.13208254419191923" blue="0.13208254419191923" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="BradleyHandITCTT-Bold" family="Bradley Hand" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="35" y="109" width="330" height="225"/>
+                    </variation>
+                </textView>
+                <imageView userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9uk-aq-D2d">
+                    <rect key="frame" x="286" y="322" width="282" height="210"/>
+                    <variation key="heightClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="310" y="182" width="282" height="210"/>
+                    </variation>
+                    <variation key="widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="59" y="365" width="282" height="210"/>
+                    </variation>
+                    <variation key="widthClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="463" y="133" width="282" height="210"/>
+                    </variation>
+                    <variation key="heightClass=compact-widthClass=compact" fixedFrame="YES">
+                        <rect key="frame" x="200" y="261" width="182" height="131"/>
+                    </variation>
+                    <variation key="heightClass=compact-widthClass=regular" fixedFrame="YES">
+                        <rect key="frame" x="479" y="126" width="282" height="210"/>
+                    </variation>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <point key="canvasLocation" x="448" y="363"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="post-it-198796-m.jpg" width="300" height="246"/>
+    </resources>
+</document>
