@@ -10,7 +10,6 @@
 		B152F5DA1ADA65910019FFFB /* MXWLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B152F5D91ADA65910019FFFB /* MXWLibraryViewController.m */; };
 		B152F5DD1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */; };
 		B1740D381AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1740D371AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib */; };
-		B1740D3A1AE2B2AB000ECB0F /* post-it-198796-m.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1740D391AE2B2AB000ECB0F /* post-it-198796-m.jpg */; };
 		B1740D401AE2B663000ECB0F /* MXWNoteCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1740D3F1AE2B663000ECB0F /* MXWNoteCollectionViewCell.m */; };
 		B1740D461AE2B926000ECB0F /* AGTCoreDataCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1740D451AE2B926000ECB0F /* AGTCoreDataCollectionViewController.m */; };
 		B17D16FA1ADED9CB00DFE4A2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B17D16F91ADED9CB00DFE4A2 /* QuartzCore.framework */; };
@@ -68,6 +67,7 @@
 		B17D177D1ADEDB2600DFE4A2 /* Reader-Thumbs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B17D17621ADEDB2600DFE4A2 /* Reader-Thumbs@2x.png */; };
 		B18032BB1AE432BB00AEDB67 /* MXWNoteDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B18032B91AE432BB00AEDB67 /* MXWNoteDetailViewController.m */; };
 		B18032BC1AE432BB00AEDB67 /* MXWNoteDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B18032BA1AE432BB00AEDB67 /* MXWNoteDetailViewController.xib */; };
+		B181621B1AF16407003B4F73 /* post-it-198796-m.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B181621A1AF16407003B4F73 /* post-it-198796-m.jpg */; };
 		B1897BC81AD9529E008D743C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BC71AD9529E008D743C /* main.m */; };
 		B1897BCB1AD9529E008D743C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1897BCA1AD9529E008D743C /* AppDelegate.m */; };
 		B1897BD31AD9529E008D743C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1897BD21AD9529E008D743C /* Images.xcassets */; };
@@ -116,7 +116,6 @@
 		B152F5DB1ADAA37D0019FFFB /* MXWCoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWCoreDataTableViewController.h; sourceTree = "<group>"; };
 		B152F5DC1ADAA37D0019FFFB /* MXWCoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWCoreDataTableViewController.m; sourceTree = "<group>"; };
 		B1740D371AE2B13B000ECB0F /* MXWNoteCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXWNoteCollectionViewCell.xib; sourceTree = "<group>"; };
-		B1740D391AE2B2AB000ECB0F /* post-it-198796-m.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "post-it-198796-m.jpg"; path = "../../../post-it-198796-m.jpg"; sourceTree = "<group>"; };
 		B1740D3E1AE2B663000ECB0F /* MXWNoteCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWNoteCollectionViewCell.h; sourceTree = "<group>"; };
 		B1740D3F1AE2B663000ECB0F /* MXWNoteCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWNoteCollectionViewCell.m; sourceTree = "<group>"; };
 		B1740D441AE2B926000ECB0F /* AGTCoreDataCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGTCoreDataCollectionViewController.h; sourceTree = "<group>"; };
@@ -200,6 +199,7 @@
 		B18032B81AE432BB00AEDB67 /* MXWNoteDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXWNoteDetailViewController.h; sourceTree = "<group>"; };
 		B18032B91AE432BB00AEDB67 /* MXWNoteDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXWNoteDetailViewController.m; sourceTree = "<group>"; };
 		B18032BA1AE432BB00AEDB67 /* MXWNoteDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MXWNoteDetailViewController.xib; sourceTree = "<group>"; };
+		B181621A1AF16407003B4F73 /* post-it-198796-m.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "post-it-198796-m.jpg"; sourceTree = "<group>"; };
 		B1897BC21AD9529E008D743C /* AdvanceHBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdvanceHBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1897BC61AD9529E008D743C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1897BC71AD9529E008D743C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -524,7 +524,7 @@
 		B1897C1C1AD99729008D743C /* img */ = {
 			isa = PBXGroup;
 			children = (
-				B1740D391AE2B2AB000ECB0F /* post-it-198796-m.jpg */,
+				B181621A1AF16407003B4F73 /* post-it-198796-m.jpg */,
 				B1B979C71ADC7C5600A3D5D8 /* pdf.gif */,
 				B1B979C81ADC7C5600A3D5D8 /* pdfdownload.png */,
 				B1B979C91ADC7C5600A3D5D8 /* pdfdownloading.gif */,
@@ -643,7 +643,6 @@
 				B17D176A1ADEDB2600DFE4A2 /* AppIcon-180.png in Resources */,
 				B17D176C1ADEDB2600DFE4A2 /* Default-667h@2x.png in Resources */,
 				B1B979CB1ADC7C5600A3D5D8 /* pdfdownload.png in Resources */,
-				B1740D3A1AE2B2AB000ECB0F /* post-it-198796-m.jpg in Resources */,
 				B17D17641ADEDB2600DFE4A2 /* AppIcon-072.png in Resources */,
 				B17D17791ADEDB2600DFE4A2 /* Reader-Mark-Y@2x.png in Resources */,
 				B17D177A1ADEDB2600DFE4A2 /* Reader-Print.png in Resources */,
@@ -659,6 +658,7 @@
 				B17D17751ADEDB2600DFE4A2 /* Reader-Export@2x.png in Resources */,
 				B17D17631ADEDB2600DFE4A2 /* AppIcon-057.png in Resources */,
 				B1B979C21ADC738800A3D5D8 /* TheEnd.jpg in Resources */,
+				B181621B1AF16407003B4F73 /* post-it-198796-m.jpg in Resources */,
 				B17D176E1ADEDB2600DFE4A2 /* Reader-Button-H.png in Resources */,
 				B17D17711ADEDB2600DFE4A2 /* Reader-Button-N@2x.png in Resources */,
 				B17D17701ADEDB2600DFE4A2 /* Reader-Button-N.png in Resources */,
