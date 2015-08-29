@@ -98,6 +98,7 @@
 		B1B979CA1ADC7C5600A3D5D8 /* pdf.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C71ADC7C5600A3D5D8 /* pdf.gif */; };
 		B1B979CB1ADC7C5600A3D5D8 /* pdfdownload.png in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C81ADC7C5600A3D5D8 /* pdfdownload.png */; };
 		B1B979CC1ADC7C5600A3D5D8 /* pdfdownloading.gif in Resources */ = {isa = PBXBuildFile; fileRef = B1B979C91ADC7C5600A3D5D8 /* pdfdownloading.gif */; };
+		B1FDBA541B9225C90084980B /* advB_readable.json in Resources */ = {isa = PBXBuildFile; fileRef = B1FDBA531B9225C90084980B /* advB_readable.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +253,7 @@
 		B1B979C71ADC7C5600A3D5D8 /* pdf.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pdf.gif; sourceTree = "<group>"; };
 		B1B979C81ADC7C5600A3D5D8 /* pdfdownload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pdfdownload.png; sourceTree = "<group>"; };
 		B1B979C91ADC7C5600A3D5D8 /* pdfdownloading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = pdfdownloading.gif; sourceTree = "<group>"; };
+		B1FDBA531B9225C90084980B /* advB_readable.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = advB_readable.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -426,6 +428,7 @@
 				B1897BC61AD9529E008D743C /* Info.plist */,
 				B1897BC71AD9529E008D743C /* main.m */,
 				B1897BF61AD984E6008D743C /* Header.h */,
+				B1FDBA531B9225C90084980B /* advB_readable.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				B1B979CC1ADC7C5600A3D5D8 /* pdfdownloading.gif in Resources */,
 				B1897BD31AD9529E008D743C /* Images.xcassets in Resources */,
 				B1B979C51ADC77FA00A3D5D8 /* starDOWN.png in Resources */,
+				B1FDBA541B9225C90084980B /* advB_readable.json in Resources */,
 				B17D17691ADEDB2600DFE4A2 /* AppIcon-152.png in Resources */,
 				B17D17761ADEDB2600DFE4A2 /* Reader-Mark-N.png in Resources */,
 				B17D17671ADEDB2600DFE4A2 /* AppIcon-120.png in Resources */,

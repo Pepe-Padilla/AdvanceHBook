@@ -354,10 +354,12 @@
         
         NSLog(@"Error at use JSON: JSON formata incorrect");
         
-        *error = [NSError errorWithDomain:@"MXWLibray"
+        if (*error != nil) {
+            *error = [NSError errorWithDomain:@"MXWLibray"
                                      code:4030
                                  userInfo:@{@"JSONFormat":@"Error at use JSON: JSON formata incorrect"}];
-        
+        }
+                
         return NO;
     }
     
@@ -365,14 +367,15 @@
 }
 
 - (NSString*) getFromRepositoryWithError:(NSError**)error{
-    NSURL * urlJ=[NSURL URLWithString:REPO_URL];
+    NSString * strJ = [[NSBundle mainBundle] pathForResource:@"advB_readable" ofType:@"json"];
+    //NSURL * urlJ=[NSURL URLWithString:REPO_URL];
     NSError *err= nil;
-    NSString * strJson= [NSString stringWithContentsOfURL:urlJ
+    NSString * strJson= [NSString stringWithContentsOfFile:strJ
                                                  encoding:NSUTF8StringEncoding
                                                     error:&err];
     
     if (!strJson) {
-        NSLog(@"Error at get from Repository(%@): %@",[urlJ path],err.userInfo);
+        NSLog(@"Error at get from Repository: %@",err.userInfo);
         *error=err;
     }
     
